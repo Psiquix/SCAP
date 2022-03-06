@@ -1,0 +1,47 @@
+﻿@model Infrastructure.Models.TipoProducto
+
+@{
+    ViewBag.Title = "Editar Tipo";
+}
+
+
+<div class="jumbotron">
+
+    @using (Html.BeginForm("Save", "TipoProducto"))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="card-body">
+            <div class="row mb-3">
+                <div class="form-horizontal">
+                    <h4>Editar Tipo</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model => model.id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.descripcionTipo, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.descripcionTipo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.descripcionTipo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Guardar" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Regresar al listado", "Index")
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

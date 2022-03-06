@@ -1,0 +1,50 @@
+﻿@model Infrastructure.Models.Usuario
+@{
+    ViewBag.Title = "Log-in";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Log-In</title>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-2 col-md-offset-5 text-center">
+            @using (Html.BeginForm("LogIn", "Home", FormMethod.Post))
+            {
+                <h2>¡Bienvenido a Taller Gorro!</h2>
+                <h4>Por favor, digíte sus datos de inicio.</h4>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div>
+                    @Html.LabelFor(model => model.email)
+                    <div>
+                        @Html.EditorFor(model => model.email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+                <div>
+                    @Html.LabelFor(model => model.contrasena)
+                    <br />
+                    <div>
+                        @Html.PasswordFor(model => model.contrasena, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.contrasena, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <br />
+
+                <div>
+                    <div>
+                        <input type="submit" value="Iniciar sesión" class="btn btn-success" />
+
+                    </div>
+                </div>
+                <br />
+            }
+        </div>
+    </div>
+</body>
+</html>

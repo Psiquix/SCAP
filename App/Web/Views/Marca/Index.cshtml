@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Infrastructure.Models.Marca>
+
+@{
+    ViewBag.Title = "Listado de Marcas";
+}
+
+@*<script src="~/Scripts/sweetalert.min.js"></script>*@
+
+<div class="jumbotron">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <center><h2>Listado de Marcas</h2></center>
+
+    <button type="button" class="btn btn-success btnMant">
+        @Html.ActionLink("Nuevo", "Create")
+    </button>
+    <div class="row">
+        <div class="col-lg-9">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-active">
+                        <th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.idTipoProducto)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descripcion)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="result">
+                    @foreach (var item in Model)
+                    {
+                        <tr class="table-secondary">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.idTipoProducto)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.descripcion)
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                                </button>|
+                                <button type="button" class="btn btn-info btnMant" style="color:aliceblue">
+                                    @Html.ActionLink("Detalle", "Details", new { id = item.id })
+                                </button>|
+                                <button type="button" class="btn btn-danger btnMant" id="btnAlertMessage" style="color:aliceblue">
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<script type="text/javascript">
+    $(document).ready(function () {
+        $("#btnAlertMessage").click(function () {
+            swal({
+                title: "Confirmación",
+                text: "¿Está seguro(a) de eliminar el registro?",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Sí",
+                cancelButtonText: "No",
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal("Eliminado", "El registro se ha eliminado con éxito.", "success");
+                    } else {
+                        swal("Cancelado", "El registro se mantiene intacto.", "error")
+                    }
+                });
+        });
+    });
+</script>*@

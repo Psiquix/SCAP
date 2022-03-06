@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Infrastructure.Models.Producto>
+
+@{
+    ViewBag.Title = "Catálogo de Productos";
+}
+
+<div class="jumbotron">
+    <center><h2>Catálogo de Productos</h2></center>
+    <br />
+
+    <div class="row">
+        <div class="col-lg-12">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-4">
+                    <div class="card bg-light mb-3" style="width: 22rem;">
+                        <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(item.imagen)"
+                             alt="Imagen @Html.DisplayFor(modelItem => item.nombre)" class="img-thumbnail imgIndex" />
+                        <div class="card-body">
+                            <h5 class="card-title">@Html.DisplayNameFor(model => model.nombre): @Html.DisplayFor(modelItem => item.nombre)</h5>
+                            @*<h6 class="card-subtitle mb-2 text-muted"> @Html.DisplayNameFor(model => model.TipoProducto): @Html.DisplayFor(modelItem => item.TipoProducto.descripcionTipo)</h6>*@
+                            <p class="card-text">   @Html.DisplayNameFor(model => model.precioUnitario): @Html.DisplayFor(modelItem => item.precioUnitario)</p>
+                            @*@Ajax.ActionLink("Ordenar",//Texto para el usuario
+                                "ordenarProducto",//Acción a llamar
+                                "Pedido",
+                                new
+                                {
+                                    pIdProducto = item.Id
+                                },//Parámetros a enviar
+                                new AjaxOptions
+                                {
+                                    UpdateTargetId = "cantidadProductos",
+                                    InsertionMode = InsertionMode.Replace,
+                                    HttpMethod = "GET",
+                                }, new { @class = "btn btn-warning" }
+                                )*@
+                            <a href="#" class="btn btn-warning">Ordenar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

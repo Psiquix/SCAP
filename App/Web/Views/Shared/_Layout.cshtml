@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Taller Gorro</title>
+
+    @Styles.Render("~/Styles/MyStyle.css")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+`   <link href="~/Styles/MyStyle.css" rel="stylesheet" />
+
+</head>
+<body class="BGBody">
+    <div class="ContentDiv">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="#">
+                        <img src="~/Img/Logo.png" alt="logoImg" class="logo" />
+                    </a>
+                </div>
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>*@
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li>@Html.ActionLink("Taller", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Producto")</li>
+                        @*<li>@Html.ActionLink("Productos Crear", "Create", "Producto")</li>*@
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mantenimientos</a>
+                            <div class="dropdown-menu">
+                                @*<a class="dropdown-item">@Html.ActionLink("Productos", "Create", "Producto", null, new { @class = "dropdown-item" })</a>
+                <a class="dropdown-item">@Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</a>
+                <a class="dropdown-item">@Html.ActionLink("Marcas de Productos", "Index", "Marca", null, new { @class = "dropdown-item" })</a>*@
+                                @Html.ActionLink("Productos", "Index", "Producto", null, new { @class = "dropdown-item" })<hr />
+                                @Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })<hr />
+                                @Html.ActionLink("Marcas de Productos", "Index", "Marca", null, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                        <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle show" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"> <img src="~/Img/userIcon.png" /></a>
+                            <div class="dropdown-menu">
+                                @Html.ActionLink("LogIn", "LogIn", "Home", null, new { @class = "dropdown-item" })<hr />
+                                @Html.ActionLink("Registrar Usuario", "Create", "Usuario", null, new { @class = "dropdown-item" })<hr />
+                                @Html.ActionLink("LogOut", "LogOut", "Usuario", null, new { @class = "dropdown-item" })
+                            </div>
+                        </li>
+                        @*<li>@Html.ActionLink("Acerca de nosotros", "About", "Home")</li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container body-content bodyDiv">
+
+            @RenderBody()
+        </div>
+    </div>
+        <footer class="navbar-inverse navbar-bottom" id="footer" style="color: whitesmoke; bottom:0px">
+            <div class="container-fluid">
+                <div class="row text-xs-center text-sm-left text-md-left">
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+
+                        <img src="~/Img/Logo.png" alt="logoimg" class="logoFooter" />
+
+                    </div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h2 style="font-weight:300"> Contáctenos</h2>
+
+                        <p style="margin:0px"><img src="~/Img/icons/map.png" alt="mapIcon" class="footerIcon" />  C. Los Portones, Copan, Alajuela Province, San Rafael, Costa Rica</p>
+                        <p style="margin:0px"><img src="~/Img/icons/mail.png" alt="mailIcon" class="footerIcon" />tallergorro54@gmail.com</p>
+                        <p style="margin:0px"><img src="~/Img/icons/tel.png" alt="telIcon" class="footerIcon" /> +506 8888-8888</p>
+                    </div>
+                    <div class="col-xs-12 col-sm-4 col-md-4">
+                        <h2 style="font-weight:300"> Acerca de nosotros</h2>
+
+                        <p style="margin:0px"><a href="#">Nuestro equipo</a></p>
+                        <p style="margin:0px"><a href="#">Nuestra visión</a></p>
+                        <p style="margin:0px"><a href="#">Nuestra misión</a></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p class="h6">© Todos los derechos reservados @DateTime.Today.Year.</p>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </footer>
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

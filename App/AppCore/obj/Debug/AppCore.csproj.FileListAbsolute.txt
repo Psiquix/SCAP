@@ -1,0 +1,84 @@
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\AppCore.dll
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\AppCore.pdb
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\Infrastructure.dll
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\EntityFramework.dll
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\Infrastructure.pdb
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\Infrastructure.dll.config
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\EntityFramework.xml
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\obj\Debug\AppCore.dll
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\obj\Debug\AppCore.pdb
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\log4net.dll
+E:\Documents\UTN\Practica\Proyecto Programado\AppCore\bin\Debug\log4net.xml
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\AppCore.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\AppCore.pdb
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\Infrastructure.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\log4net.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\EntityFramework.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\Infrastructure.pdb
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\Infrastructure.dll.config
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\log4net.xml
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\bin\Debug\EntityFramework.xml
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\obj\Debug\AppCore.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V1.2\AppCore\obj\Debug\AppCore.pdb
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\AppCore.dll
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\AppCore.pdb
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\Infrastructure.dll
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\log4net.dll
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\EntityFramework.dll
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\Infrastructure.pdb
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\Infrastructure.dll.config
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\log4net.xml
+D:\Downloads\SCAP V3_1\AppCore\bin\Debug\EntityFramework.xml
+D:\Downloads\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+D:\Downloads\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+D:\Downloads\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+D:\Downloads\SCAP V3_1\AppCore\obj\Debug\AppCore.dll
+D:\Downloads\SCAP V3_1\AppCore\obj\Debug\AppCore.pdb
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\AppCore.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\AppCore.pdb
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\Infrastructure.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\log4net.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\EntityFramework.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\Infrastructure.pdb
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\Infrastructure.dll.config
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\log4net.xml
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\bin\Debug\EntityFramework.xml
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\obj\Debug\AppCore.dll
+C:\Users\FABIAN\Documents\ProyectoGraduación_SCAP\V.4\SCAP V3_1\AppCore\obj\Debug\AppCore.pdb
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\AppCore.dll
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\AppCore.pdb
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\Infrastructure.dll
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\log4net.dll
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\EntityFramework.dll
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\Infrastructure.pdb
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\Infrastructure.dll.config
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\log4net.xml
+D:\Downloads\SCAP V4_1\AppCore\bin\Debug\EntityFramework.xml
+D:\Downloads\SCAP V4_1\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+D:\Downloads\SCAP V4_1\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+D:\Downloads\SCAP V4_1\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+D:\Downloads\SCAP V4_1\AppCore\obj\Debug\AppCore.dll
+D:\Downloads\SCAP V4_1\AppCore\obj\Debug\AppCore.pdb
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\AppCore.dll
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\AppCore.pdb
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\Infrastructure.dll
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\log4net.dll
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\EntityFramework.dll
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\Infrastructure.pdb
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\Infrastructure.dll.config
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\log4net.xml
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\bin\Debug\EntityFramework.xml
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\obj\Debug\AppCore.dll
+D:\Downloads\SCAP V4_3\SCAP V4_2\AppCore\obj\Debug\AppCore.pdb

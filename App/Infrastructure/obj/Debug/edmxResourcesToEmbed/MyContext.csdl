@@ -1,0 +1,229 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dboTallerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAppmt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Client" Type="Int32" />
+    <Property Name="DateAppmt" Type="DateTime" Precision="0" />
+    <Property Name="TimeAppmt" Type="DateTime" Precision="3" />
+    <Property Name="DescriptionAppmt" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="TypeApmt" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="tblClient" Relationship="Self.FK__tblAppmt__ID_Cli__33D4B598" FromRole="tblAppmt" ToRole="tblClient" />
+  </EntityType>
+  <EntityType Name="tblBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeProd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Type" Type="Int32" />
+    <NavigationProperty Name="tblProducts" Relationship="Self.FK__tblProduc__ID_Br__398D8EEE" FromRole="tblBrand" ToRole="tblProducts" />
+  </EntityType>
+  <EntityType Name="tblClient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameClient" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Pswd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ID_Phone" Type="Int32" />
+    <NavigationProperty Name="tblAppmts" Relationship="Self.FK__tblAppmt__ID_Cli__33D4B598" FromRole="tblClient" ToRole="tblAppmt" />
+    <NavigationProperty Name="tblClient_Phone" Relationship="Self.FK__tblClient__ID_Ph__34C8D9D1" FromRole="tblClient" ToRole="tblClient_Phone" />
+    <NavigationProperty Name="tblOrders" Relationship="Self.FK__tblOrder__ID_Cli__35BCFE0A" FromRole="tblClient" ToRole="tblOrder" />
+  </EntityType>
+  <EntityType Name="tblClient_Phone">
+    <Key>
+      <PropertyRef Name="ID_Phone" />
+    </Key>
+    <Property Name="ID_Phone" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Phone_Number" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblClients" Relationship="Self.FK__tblClient__ID_Ph__34C8D9D1" FromRole="tblClient_Phone" ToRole="tblClient" />
+  </EntityType>
+  <EntityType Name="tblDetail_Order">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+      <PropertyRef Name="ID_Prod" />
+    </Key>
+    <Property Name="ID_Order" Type="Int32" Nullable="false" />
+    <Property Name="ID_Prod" Type="Int32" Nullable="false" />
+    <Property Name="Subtotal" Type="Double" />
+    <Property Name="Amount" Type="Int32" />
+    <NavigationProperty Name="tblOrder" Relationship="Self.FK__tblDetail__ID_Or__36B12243" FromRole="tblDetail_Order" ToRole="tblOrder" />
+    <NavigationProperty Name="tblProduct" Relationship="Self.FK__tblDetail__ID_Pr__37A5467C" FromRole="tblDetail_Order" ToRole="tblProducts" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_Client" Type="Int32" />
+    <Property Name="Tax" Type="Double" />
+    <Property Name="Total" Type="Double" />
+    <Property Name="DateOrder" Type="DateTime" Precision="0" />
+    <Property Name="StatusOrder" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="tblClient" Relationship="Self.FK__tblOrder__ID_Cli__35BCFE0A" FromRole="tblOrder" ToRole="tblClient" />
+    <NavigationProperty Name="tblDetail_Order" Relationship="Self.FK__tblDetail__ID_Or__36B12243" FromRole="tblOrder" ToRole="tblDetail_Order" />
+  </EntityType>
+  <EntityType Name="tblProduct">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameProd" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="DescriptionProd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Type_Unit" Type="Int32" />
+    <Property Name="ID_TypeProd" Type="Int32" />
+    <Property Name="ID_Brand" Type="Int32" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="QuantityNum" Type="Int32" />
+    <Property Name="QuantityWgt" Type="Double" />
+    <NavigationProperty Name="tblBrand" Relationship="Self.FK__tblProduc__ID_Br__398D8EEE" FromRole="tblProducts" ToRole="tblBrand" />
+    <NavigationProperty Name="tblDetail_Order" Relationship="Self.FK__tblDetail__ID_Pr__37A5467C" FromRole="tblProducts" ToRole="tblDetail_Order" />
+    <NavigationProperty Name="tblType_Product" Relationship="Self.FK__tblProduc__ID_Ty__38996AB5" FromRole="tblProducts" ToRole="tblType_Product" />
+  </EntityType>
+  <EntityType Name="tblType_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeProd" Type="Int32" />
+    <NavigationProperty Name="tblProducts" Relationship="Self.FK__tblProduc__ID_Ty__38996AB5" FromRole="tblType_Product" ToRole="tblProducts" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NameUser" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="Pswd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleUser" Type="Int32" />
+    <Property Name="StatusUser" Type="Boolean" />
+  </EntityType>
+  <Association Name="FK__tblAppmt__ID_Cli__33D4B598">
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="0..1" />
+    <End Role="tblAppmt" Type="Self.tblAppmt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblAppmt">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__ID_Br__398D8EEE">
+    <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="0..1" />
+    <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBrand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblProducts">
+        <PropertyRef Name="ID_Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClient__ID_Ph__34C8D9D1">
+    <End Role="tblClient_Phone" Type="Self.tblClient_Phone" Multiplicity="0..1" />
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient_Phone">
+        <PropertyRef Name="ID_Phone" />
+      </Principal>
+      <Dependent Role="tblClient">
+        <PropertyRef Name="ID_Phone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblOrder__ID_Cli__35BCFE0A">
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="0..1" />
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblOrder">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDetail__ID_Or__36B12243">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblDetail_Order" Type="Self.tblDetail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDetail_Order">
+        <PropertyRef Name="ID_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDetail__ID_Pr__37A5467C">
+    <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="1" />
+    <End Role="tblDetail_Order" Type="Self.tblDetail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDetail_Order">
+        <PropertyRef Name="ID_Prod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__ID_Ty__38996AB5">
+    <End Role="tblType_Product" Type="Self.tblType_Product" Multiplicity="0..1" />
+    <End Role="tblProducts" Type="Self.tblProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblType_Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblProducts">
+        <PropertyRef Name="ID_TypeProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dboTallerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAppmts" EntityType="Self.tblAppmt" />
+    <EntitySet Name="tblBrands" EntityType="Self.tblBrand" />
+    <EntitySet Name="tblClients" EntityType="Self.tblClient" />
+    <EntitySet Name="tblClient_Phone" EntityType="Self.tblClient_Phone" />
+    <EntitySet Name="tblDetail_Order" EntityType="Self.tblDetail_Order" />
+    <EntitySet Name="tblOrders" EntityType="Self.tblOrder" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProduct" />
+    <EntitySet Name="tblType_Product" EntityType="Self.tblType_Product" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
+    <AssociationSet Name="FK__tblAppmt__ID_Cli__33D4B598" Association="Self.FK__tblAppmt__ID_Cli__33D4B598">
+      <End Role="tblClient" EntitySet="tblClients" />
+      <End Role="tblAppmt" EntitySet="tblAppmts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__ID_Br__398D8EEE" Association="Self.FK__tblProduc__ID_Br__398D8EEE">
+      <End Role="tblBrand" EntitySet="tblBrands" />
+      <End Role="tblProducts" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClient__ID_Ph__34C8D9D1" Association="Self.FK__tblClient__ID_Ph__34C8D9D1">
+      <End Role="tblClient_Phone" EntitySet="tblClient_Phone" />
+      <End Role="tblClient" EntitySet="tblClients" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblOrder__ID_Cli__35BCFE0A" Association="Self.FK__tblOrder__ID_Cli__35BCFE0A">
+      <End Role="tblClient" EntitySet="tblClients" />
+      <End Role="tblOrder" EntitySet="tblOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDetail__ID_Or__36B12243" Association="Self.FK__tblDetail__ID_Or__36B12243">
+      <End Role="tblOrder" EntitySet="tblOrders" />
+      <End Role="tblDetail_Order" EntitySet="tblDetail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDetail__ID_Pr__37A5467C" Association="Self.FK__tblDetail__ID_Pr__37A5467C">
+      <End Role="tblProducts" EntitySet="tblProducts" />
+      <End Role="tblDetail_Order" EntitySet="tblDetail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__ID_Ty__38996AB5" Association="Self.FK__tblProduc__ID_Ty__38996AB5">
+      <End Role="tblType_Product" EntitySet="tblType_Product" />
+      <End Role="tblProducts" EntitySet="tblProducts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

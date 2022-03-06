@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Unauthorized";
+}
+
+<div class="jumbotron">
+    <center><h2 style="color:red">No se encuentra autorizado.</h2></center>
+    <br>
+
+    <input type="button" value="Regresar" class="btn btn-danger" onclick="goBack()" />
+</div>
+
+<script>
+    function goBack() {
+        window.history.back();//Buscar en el historial del navegador, la ventana anterior a esta
+    }
+</script>
+

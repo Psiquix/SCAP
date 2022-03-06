@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dboTallerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAppmt">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Client" Type="int" />
+    <Property Name="DateAppmt" Type="date" />
+    <Property Name="TimeAppmt" Type="datetime" />
+    <Property Name="DescriptionAppmt" Type="nvarchar" MaxLength="40" />
+    <Property Name="TypeApmt" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tblBrand">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeProd" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Type" Type="int" />
+  </EntityType>
+  <EntityType Name="tblClient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NameClient" Type="nvarchar" MaxLength="40" />
+    <Property Name="Email" Type="nvarchar" MaxLength="40" />
+    <Property Name="Pswd" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_Phone" Type="int" />
+  </EntityType>
+  <EntityType Name="tblClient_Phone">
+    <Key>
+      <PropertyRef Name="ID_Phone" />
+    </Key>
+    <Property Name="ID_Phone" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Phone_Number" Type="nvarchar" MaxLength="12" />
+  </EntityType>
+  <EntityType Name="tblDetail_Order">
+    <Key>
+      <PropertyRef Name="ID_Order" />
+      <PropertyRef Name="ID_Prod" />
+    </Key>
+    <Property Name="ID_Order" Type="int" Nullable="false" />
+    <Property Name="ID_Prod" Type="int" Nullable="false" />
+    <Property Name="Subtotal" Type="float" />
+    <Property Name="Amount" Type="int" />
+  </EntityType>
+  <EntityType Name="tblOrder">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Client" Type="int" />
+    <Property Name="Tax" Type="float" />
+    <Property Name="Total" Type="float" />
+    <Property Name="DateOrder" Type="date" />
+    <Property Name="StatusOrder" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tblProducts">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameProd" Type="nvarchar" MaxLength="10" />
+    <Property Name="DescriptionProd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Type_Unit" Type="int" />
+    <Property Name="ID_TypeProd" Type="int" />
+    <Property Name="ID_Brand" Type="int" />
+    <Property Name="Price" Type="float" />
+    <Property Name="QuantityNum" Type="int" />
+    <Property Name="QuantityWgt" Type="float" />
+  </EntityType>
+  <EntityType Name="tblType_Product">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeProd" Type="int" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="NameUser" Type="nvarchar" MaxLength="40" />
+    <Property Name="Email" Type="nvarchar" MaxLength="40" />
+    <Property Name="Pswd" Type="nvarchar" MaxLength="50" />
+    <Property Name="RoleUser" Type="int" />
+    <Property Name="StatusUser" Type="bit" />
+  </EntityType>
+  <Association Name="FK__tblAppmt__ID_Cli__33D4B598">
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="0..1" />
+    <End Role="tblAppmt" Type="Self.tblAppmt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblAppmt">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblClient__ID_Ph__34C8D9D1">
+    <End Role="tblClient_Phone" Type="Self.tblClient_Phone" Multiplicity="0..1" />
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient_Phone">
+        <PropertyRef Name="ID_Phone" />
+      </Principal>
+      <Dependent Role="tblClient">
+        <PropertyRef Name="ID_Phone" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDetail__ID_Or__36B12243">
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="1" />
+    <End Role="tblDetail_Order" Type="Self.tblDetail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblOrder">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDetail_Order">
+        <PropertyRef Name="ID_Order" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblDetail__ID_Pr__37A5467C">
+    <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="1" />
+    <End Role="tblDetail_Order" Type="Self.tblDetail_Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblProducts">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblDetail_Order">
+        <PropertyRef Name="ID_Prod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblOrder__ID_Cli__35BCFE0A">
+    <End Role="tblClient" Type="Self.tblClient" Multiplicity="0..1" />
+    <End Role="tblOrder" Type="Self.tblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblClient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblOrder">
+        <PropertyRef Name="ID_Client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__ID_Br__398D8EEE">
+    <End Role="tblBrand" Type="Self.tblBrand" Multiplicity="0..1" />
+    <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblBrand">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblProducts">
+        <PropertyRef Name="ID_Brand" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblProduc__ID_Ty__38996AB5">
+    <End Role="tblType_Product" Type="Self.tblType_Product" Multiplicity="0..1" />
+    <End Role="tblProducts" Type="Self.tblProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblType_Product">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="tblProducts">
+        <PropertyRef Name="ID_TypeProd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dboTallerModelStoreContainer">
+    <EntitySet Name="tblAppmt" EntityType="Self.tblAppmt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBrand" EntityType="Self.tblBrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblClient" EntityType="Self.tblClient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblClient_Phone" EntityType="Self.tblClient_Phone" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDetail_Order" EntityType="Self.tblDetail_Order" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblOrder" EntityType="Self.tblOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblProducts" EntityType="Self.tblProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblType_Product" EntityType="Self.tblType_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblAppmt__ID_Cli__33D4B598" Association="Self.FK__tblAppmt__ID_Cli__33D4B598">
+      <End Role="tblClient" EntitySet="tblClient" />
+      <End Role="tblAppmt" EntitySet="tblAppmt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblClient__ID_Ph__34C8D9D1" Association="Self.FK__tblClient__ID_Ph__34C8D9D1">
+      <End Role="tblClient_Phone" EntitySet="tblClient_Phone" />
+      <End Role="tblClient" EntitySet="tblClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDetail__ID_Or__36B12243" Association="Self.FK__tblDetail__ID_Or__36B12243">
+      <End Role="tblOrder" EntitySet="tblOrder" />
+      <End Role="tblDetail_Order" EntitySet="tblDetail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblDetail__ID_Pr__37A5467C" Association="Self.FK__tblDetail__ID_Pr__37A5467C">
+      <End Role="tblProducts" EntitySet="tblProducts" />
+      <End Role="tblDetail_Order" EntitySet="tblDetail_Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblOrder__ID_Cli__35BCFE0A" Association="Self.FK__tblOrder__ID_Cli__35BCFE0A">
+      <End Role="tblClient" EntitySet="tblClient" />
+      <End Role="tblOrder" EntitySet="tblOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__ID_Br__398D8EEE" Association="Self.FK__tblProduc__ID_Br__398D8EEE">
+      <End Role="tblBrand" EntitySet="tblBrand" />
+      <End Role="tblProducts" EntitySet="tblProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblProduc__ID_Ty__38996AB5" Association="Self.FK__tblProduc__ID_Ty__38996AB5">
+      <End Role="tblType_Product" EntitySet="tblType_Product" />
+      <End Role="tblProducts" EntitySet="tblProducts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

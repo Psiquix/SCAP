@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dboTallerModelStoreContainer" CdmEntityContainer="dboTallerEntities">
+    <EntitySetMapping Name="tblAppmts">
+      <EntityTypeMapping TypeName="dboTallerModel.tblAppmt">
+        <MappingFragment StoreEntitySet="tblAppmt">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="DateAppmt" ColumnName="DateAppmt" />
+          <ScalarProperty Name="TimeAppmt" ColumnName="TimeAppmt" />
+          <ScalarProperty Name="DescriptionAppmt" ColumnName="DescriptionAppmt" />
+          <ScalarProperty Name="TypeApmt" ColumnName="TypeApmt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBrands">
+      <EntityTypeMapping TypeName="dboTallerModel.tblBrand">
+        <MappingFragment StoreEntitySet="tblBrand">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeProd" ColumnName="TypeProd" />
+          <ScalarProperty Name="ID_Type" ColumnName="ID_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClients">
+      <EntityTypeMapping TypeName="dboTallerModel.tblClient">
+        <MappingFragment StoreEntitySet="tblClient">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameClient" ColumnName="NameClient" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Pswd" ColumnName="Pswd" />
+          <ScalarProperty Name="ID_Phone" ColumnName="ID_Phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblClient_Phone">
+      <EntityTypeMapping TypeName="dboTallerModel.tblClient_Phone">
+        <MappingFragment StoreEntitySet="tblClient_Phone">
+          <ScalarProperty Name="ID_Phone" ColumnName="ID_Phone" />
+          <ScalarProperty Name="Phone_Number" ColumnName="Phone_Number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDetail_Order">
+      <EntityTypeMapping TypeName="dboTallerModel.tblDetail_Order">
+        <MappingFragment StoreEntitySet="tblDetail_Order">
+          <ScalarProperty Name="ID_Order" ColumnName="ID_Order" />
+          <ScalarProperty Name="ID_Prod" ColumnName="ID_Prod" />
+          <ScalarProperty Name="Subtotal" ColumnName="Subtotal" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblOrders">
+      <EntityTypeMapping TypeName="dboTallerModel.tblOrder">
+        <MappingFragment StoreEntitySet="tblOrder">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="ID_Client" ColumnName="ID_Client" />
+          <ScalarProperty Name="Tax" ColumnName="Tax" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="DateOrder" ColumnName="DateOrder" />
+          <ScalarProperty Name="StatusOrder" ColumnName="StatusOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblProducts">
+      <EntityTypeMapping TypeName="dboTallerModel.tblProduct">
+        <MappingFragment StoreEntitySet="tblProducts">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameProd" ColumnName="NameProd" />
+          <ScalarProperty Name="DescriptionProd" ColumnName="DescriptionProd" />
+          <ScalarProperty Name="Type_Unit" ColumnName="Type_Unit" />
+          <ScalarProperty Name="ID_TypeProd" ColumnName="ID_TypeProd" />
+          <ScalarProperty Name="ID_Brand" ColumnName="ID_Brand" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="QuantityNum" ColumnName="QuantityNum" />
+          <ScalarProperty Name="QuantityWgt" ColumnName="QuantityWgt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblType_Product">
+      <EntityTypeMapping TypeName="dboTallerModel.tblType_Product">
+        <MappingFragment StoreEntitySet="tblType_Product">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeProd" ColumnName="TypeProd" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="dboTallerModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="NameUser" ColumnName="NameUser" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Pswd" ColumnName="Pswd" />
+          <ScalarProperty Name="RoleUser" ColumnName="RoleUser" />
+          <ScalarProperty Name="StatusUser" ColumnName="StatusUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,78 @@
+﻿.BGBody {
+    background-color: #eeeeee;
+    background: linear-gradient(135deg, #73737355 25%, transparent 25%) -23px 0/ 46px 46px, linear-gradient(225deg, #737373 25%, transparent 25%) -23px 0/ 46px 46px, linear-gradient(315deg, #73737355 25%, transparent 25%) 0px 0/ 46px 46px, linear-gradient(45deg, #737373 25%, #eeeeee 25%) 0px 0/ 46px 46px;
+    padding-bottom: 0px;
+    min-height: 2000px
+}
+.ContentDiv {
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-bottom: 0px
+}
+.bodyDiv {
+    background-color: rgb(226, 226, 226);
+    margin-top:45px;
+    border-radius: 10px;
+    margin-bottom: 100px;
+}
+.footerIcon{
+    height:20px;
+    width:20px;
+    margin: 10px
+}
+.imgIndex{
+    height:160px;
+    width:300px;
+}
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 100%;
+    margin: auto;
+    height: 500px;
+    object-fit: cover
+}
+.CarouselImg img {
+    height: 100px;
+    width: 100%;
+}
+.btnMant a {
+    color: rgb(239, 239, 239)
+}
+.btnMant{
+    margin: 10px;
+}
+.logo {
+    height: 60px;
+    width: 110px;
+}
+
+.logoFooter{
+    height:100px;
+}
+.Myfooter {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+    /*    color: aliceblue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;*/
+}
+
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 310px;
+    width: 299px;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 310px;
+    width: 299px;
+}
