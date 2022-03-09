@@ -75,3 +75,14 @@ D:\Downloads\SCAP V4_3\SCAP V4_2\Infrastructure\obj\Debug\Infrastructure.csproj.
 D:\Downloads\SCAP V4_3\SCAP V4_2\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
 D:\Downloads\SCAP V4_3\SCAP V4_2\Infrastructure\obj\Debug\Infrastructure.dll
 D:\Downloads\SCAP V4_3\SCAP V4_2\Infrastructure\obj\Debug\Infrastructure.pdb
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll.config
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\Infrastructure.pdb
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\EntityFramework.xml
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\bin\Debug\log4net.xml
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.AssemblyReference.cache
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CoreCompileInputs.cache
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.dll
+E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.pdb

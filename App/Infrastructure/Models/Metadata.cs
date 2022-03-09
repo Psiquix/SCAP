@@ -12,11 +12,11 @@ namespace Infrastructure.Models
         [Display(Name = "Identificación")]
         public int id { get; set; }
         [Display(Name = "Nombre")]
-        [Required(ErrorMessage = "El nombre es un campo obligatorio")]
+        //[Required(ErrorMessage = "El nombre es un campo obligatorio")]
 
         public string nombre { get; set; }
         [Display(Name = "Primer apellido")]
-        [Required(ErrorMessage = "El apellido es un campo obligatorio")]
+        //[Required(ErrorMessage = "El apellido es un campo obligatorio")]
         public string apellidos { get; set; }
 
 

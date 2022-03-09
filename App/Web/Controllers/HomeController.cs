@@ -35,7 +35,6 @@ namespace SCAP.Controllers
         [HttpPost]
         public ActionResult LogIn(Usuario user)
         {
-
             IServiceUsuario _ServiceUser = new ServiceUsuario();
             Usuario oUser = null;
             try

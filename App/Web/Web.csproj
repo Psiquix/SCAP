@@ -235,6 +235,8 @@
     <Content Include="Img\Icons\map.png" />
     <Content Include="Img\Icons\mechanic.png" />
     <Content Include="Img\Icons\tel.png" />
+    <Content Include="Img\Icons\user.png" />
+    <Content Include="Img\Icons\userBlack.png" />
     <Content Include="Img\userIcon.png" />
     <Content Include="Img\user.png" />
     <Content Include="Scripts\sweetalert.min.js" />
