@@ -96,3 +96,17 @@ E:\Documents\UTN\Practica\SCAP\App\AppCore\obj\Debug\AppCore.csproj.CoreCompileI
 E:\Documents\UTN\Practica\SCAP\App\AppCore\obj\Debug\AppCore.csproj.CopyComplete
 E:\Documents\UTN\Practica\SCAP\App\AppCore\obj\Debug\AppCore.dll
 E:\Documents\UTN\Practica\SCAP\App\AppCore\obj\Debug\AppCore.pdb
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\AppCore.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\AppCore.pdb
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\Infrastructure.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\log4net.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\EntityFramework.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\Infrastructure.pdb
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\Infrastructure.dll.config
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\log4net.xml
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\bin\Debug\EntityFramework.xml
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.pdb

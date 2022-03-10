@@ -10,6 +10,7 @@
           <ScalarProperty Name="horaCita" ColumnName="horaCita" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="idTipoCita" ColumnName="idTipoCita" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -29,6 +30,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -84,6 +86,7 @@
         <MappingFragment StoreEntitySet="TipoCita">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -92,6 +95,7 @@
         <MappingFragment StoreEntitySet="TipoProducto">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcionTipo" ColumnName="descripcionTipo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -100,6 +104,7 @@
         <MappingFragment StoreEntitySet="TipoUnidad">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcionTipo" ColumnName="descripcionTipo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

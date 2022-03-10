@@ -19,15 +19,13 @@ namespace Infrastructure.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TipoProducto()
         {
-            this.Marcas = new HashSet<Marca>();
             this.Productoes = new HashSet<Producto>();
         }
     
         public int id { get; set; }
         public string descripcionTipo { get; set; }
+        public Nullable<bool> estado { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Marca> Marcas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto> Productoes { get; set; }
     }

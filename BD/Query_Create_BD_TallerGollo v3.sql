@@ -105,13 +105,9 @@ alter table Cita add foreign key (idTipoCita) references TipoCita(id);
 
 
 insert into TelefonoUsuario values ('123',1);
-insert into Rol values ('a',1);
+insert into Rol values ('Test',1);
 
-insert into Usuario values (2,'admin','test','123','123',1,1,1);
-insert into TipoProducto values ('babayaga');
-insert into Marca values (1,'test marca');
-insert into TipoUnidad values ('test unidad');
-insert into Producto values ('testProd','test',1,1,1,100,30,null,111,1);
+insert into Usuario values (1,'admin',' ','root@root','123',1,1,1);
 
 select * from producto
 select * from Usuario

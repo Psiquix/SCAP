@@ -4,28 +4,28 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ad5475b256a94b14a897e953e47a456a" Name="Diagram1">
+      <Diagram DiagramId="5c4079021bf2485c8dbc7e5b82344e1b" Name="Diagram1">
         <EntityTypeShape EntityType="TallerGorroBDModel.Cita" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.DetalleOrden" Width="1.5" PointX="7.5" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.DetalleOrden" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerGorroBDModel.Marca" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.Orden" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.Producto" Width="1.5" PointX="5.25" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.Rol" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.TelefonoUsuario" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.Orden" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.Producto" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.Rol" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.TelefonoUsuario" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerGorroBDModel.TipoCita" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.TipoProducto" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.TipoUnidad" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.Usuario" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Cita__idTipoCita__403A8C7D" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Cita__idUsuario__37A5467C" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__DetalleOr__idOrd__3B75D760" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__DetalleOr__idPro__3C69FB99" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idMarc__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Orden__idUsuario__3A81B327" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idTipo__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idTipo__3F466844" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Usuario__idRol__398D8EEE" ManuallyRouted="false" />
-        <AssociationConnector Association="TallerGorroBDModel.FK__Usuario__idTelf__38996AB5" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.TipoProducto" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.TipoUnidad" Width="1.5" PointX="3" PointY="16.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.Usuario" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Cita__idTipoCita__52593CB8" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Cita__idUsuario__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__DetalleOr__idOrd__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__DetalleOr__idPro__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idMarc__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Orden__idUsuario__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idTipo__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Producto__idTipo__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Usuario__idRol__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="TallerGorroBDModel.FK__Usuario__idTelf__4AB81AF0" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -22,6 +22,7 @@ namespace Infrastructure.Models
         public Nullable<System.DateTime> horaCita { get; set; }
         public string descripcion { get; set; }
         public Nullable<int> idTipoCita { get; set; }
+        public Nullable<bool> estado { get; set; }
     
         public virtual TipoCita TipoCita { get; set; }
         public virtual Usuario Usuario { get; set; }
