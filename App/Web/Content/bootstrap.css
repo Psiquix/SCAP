@@ -1608,8 +1608,12 @@ pre code {
   margin-left: auto;
 }
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-bottom: 40px;
+
 }
 .row-no-gutters {
   margin-right: 0;
@@ -2675,6 +2679,7 @@ output {
   transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
   transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  margin: auto;
 }
 .form-control:focus {
   border-color: #66afe9;
@@ -3633,6 +3638,8 @@ tbody.collapse.in {
   line-height: 1.42857143;
   color: #333333;
   white-space: nowrap;
+  padding: 10px;
+  font-size:15px;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {

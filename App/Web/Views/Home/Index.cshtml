@@ -3,6 +3,7 @@
     ViewBag.Title = "Index";
 }
 <div>
+    @*Carrusel*@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -16,24 +17,24 @@
             <div class="item active">
                 <img src="~/Img/Foto_Carrusel2.jpg" alt="Image" class="CarouselImg">
                 <div class="carousel-caption">
-                    <h2>Taller Gollo</h2>
-                    <p></p>
+                    <h1 class="font_white">Taller Gollo</h1>
+                    <p class="font_white">Estamos para servirle.</p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="~/Img/Foto_Carrusel1.jpg" alt="Image" class="CarouselImg">
                 <div class="carousel-caption">
-                    <h2>Freighlitner M2</h2>
-                    <p>Reemplazo del filtro de agua y una manguera del compresor.</p>
+                    <h2 class="font_white">Revisiones</h2>
+                    <p class="font_white">Revisiones y arreglos de automóviles y camiones.</p>
                 </div>
             </div>
 
             <div class="item">
                 <img src="~/Img/Foto_Carrusel3.jpg" alt="Image" class="CarouselImg"">
                 <div class="carousel-caption">
-                    <h2>Furgón</h2>
-                    <p>Pintura de puertas, aros, bocinas y franja anaranjada.</p>
+                    <h2 class="font_white">Pintura</h2>
+                    <p class="font_white">Pintura de puertas, aros, bocinas y franja anaranjada.</p>
                 </div>
             </div>
         </div>
@@ -50,36 +51,104 @@
     </div>
 
     <div class="container text-center">
-        <h1>Nuestra historia</h1><br>
-        <hr />
+
         <div class="row">
-            <div class="col-xs-3">
-                <div class="map-responsive">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1455143446683!2d-84.22366878474223!3d10.004836775694987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9d48339176f%3A0xebd422187fb705a8!2sTaller%20Gorro!5e0!3m2!1sen!2scr!4v1646776857007!5m2!1sen!2scr" width="400" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
-                </div> 
-            </div>
-            <div class="col" style="text-align: left">
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis odio vestibulum neque convallis efficitur. Praesent quis nisl molestie, aliquam erat quis, malesuada ante. Nullam dapibus ac augue eu gravida. Vestibulum a risus pellentesque, ornare augue nec, congue quam. Nullam odio quam, tempus ac augue aliquam, semper tristique sem. Nulla et convallis tellus, non pulvinar urna. Nulla sit amet scelerisque massa, vel ultricies dui. Nulla a tempor erat. Fusce facilisis aliquam aliquam. Donec justo neque, rutrum ac est scelerisque, porta volutpat quam. Donec sit amet convallis odio, a ornare nunc. Proin imperdiet nisi felis, ac faucibus est ultrices quis. Maecenas fringilla velit vitae ipsum feugiat tristique. Aliquam sagittis gravida orci.
+            <h1>Nuestros servicios</h1>
 
-                    Nulla facilisi. Nunc sed aliquet dolor. Proin placerat sollicitudin metus eget efficitur. Vestibulum vel sem at diam vestibulum interdum non vitae quam. Cras ornare, est a mollis finibus, ante diam porttitor dui, sed lobortis dui tellus et odio. Aenean in nibh massa. Morbi sollicitudin mollis velit nec finibus. Integer eget quam vel ante porta sagittis. Praesent faucibus nulla sit amet augue suscipit aliquam. Ut molestie enim congue est dapibus tempor. Nullam consectetur, erat non rhoncus suscipit, velit nulla efficitur turpis, ut volutpat lacus magna id sapien. Ut accumsan rutrum congue. Vestibulum sit amet consequat dui. Fusce in lacus tincidunt nisl tincidunt sollicitudin ac in nisi. Curabitur sit amet lacinia ipsum.
+            <br />
+            <div class="col-md-3">
+                <img src="~/Img/icons/wrench.png" alt="" />
+                <img src="~/Img/icons/wrench.png" alt="Arreglo img" class="imgSmall" />
+                <h2>Arreglos</h2>
+                <br>
 
-                    Nunc vitae tristique arcu. Ut quis nulla massa. Suspendisse viverra mollis ligula, nec blandit arcu aliquam eget. Nullam auctor luctus diam, non tempor lacus pretium id. Praesent a odio eget tellus consequat faucibus nec id dui. Maecenas dapibus, sem at tincidunt bibendum, odio ipsum semper sapien, eu volutpat nisl nunc sed sem. Nulla sodales rhoncus nunc at viverra. Cras porta viverra leo sit amet fringilla. Curabitur vitae ultrices leo. In vitae odio auctor, ultricies dolor eu, interdum ante. Cras blandit est eu nibh posuere, vel laoreet orci efficitur.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis odio vestibulum neque convallis efficitur. Praesent quis nisl molestie, aliquam erat quis, malesuada ante. Nullam dapibus ac augue eu gravida. Vestibulum a risus pellentesque, ornare augue nec, congue quam. Nullam odio quam, tempus ac augue aliquam, semper tristique sem. Nulla et convallis tellus, non pulvinar urna. Nulla sit amet scelerisque massa, vel ultricies dui. Nulla a tempor erat. Fusce facilisis aliquam aliquam. Donec justo neque, rutrum ac est scelerisque, porta volutpat quam. Donec sit amet convallis odio, a ornare nunc. Proin imperdiet nisi felis, ac faucibus est ultrices quis. Maecenas fringilla velit vitae ipsum feugiat tristique. Aliquam sagittis gravida orci.
-
-                    Nulla facilisi. Nunc sed aliquet dolor. Proin placerat sollicitudin metus eget efficitur. Vestibulum vel sem at diam vestibulum interdum non vitae quam. Cras ornare, est a mollis finibus, ante diam porttitor dui, sed lobortis dui tellus et odio. Aenean in nibh massa. Morbi sollicitudin mollis velit nec finibus. Integer eget quam vel ante porta sagittis. Praesent faucibus nulla sit amet augue suscipit aliquam. Ut molestie enim congue est dapibus tempor. Nullam consectetur, erat non rhoncus suscipit, velit nulla efficitur turpis, ut volutpat lacus magna id sapien. Ut accumsan rutrum congue. Vestibulum sit amet consequat dui. Fusce in lacus tincidunt nisl tincidunt sollicitudin ac in nisi. Curabitur sit amet lacinia ipsum.
-
-                    Nunc vitae tristique arcu. Ut quis nulla massa. Suspendisse viverra mollis ligula, nec blandit arcu aliquam eget. Nullam auctor luctus diam, non tempor lacus pretium id. Praesent a odio eget tellus consequat faucibus nec id dui. Maecenas dapibus, sem at tincidunt bibendum, odio ipsum semper sapien, eu volutpat nisl nunc sed sem. Nulla sodales rhoncus nunc at viverra. Cras porta viverra leo sit amet fringilla. Curabitur vitae ultrices leo. In vitae odio auctor, ultricies dolor eu, interdum ante. Cras blandit est eu nibh posuere, vel laoreet orci efficitur.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sagittis odio vestibulum neque convallis efficitur. Praesent quis nisl molestie, aliquam erat quis, malesuada ante. Nullam dapibus ac augue eu gravida. Vestibulum a risus pellentesque, ornare augue nec, congue quam. Nullam odio quam, tempus ac augue aliquam, semper tristique sem. Nulla et convallis tellus, non pulvinar urna. Nulla sit amet scelerisque massa, vel ultricies dui. Nulla a tempor erat. Fusce facilisis aliquam aliquam. Donec justo neque, rutrum ac est scelerisque, porta volutpat quam. Donec sit amet convallis odio, a ornare nunc. Proin imperdiet nisi felis, ac faucibus est ultrices quis. Maecenas fringilla velit vitae ipsum feugiat tristique. Aliquam sagittis gravida orci.
-
-                    Nulla facilisi. Nunc sed aliquet dolor. Proin placerat sollicitudin metus eget efficitur. Vestibulum vel sem at diam vestibulum interdum non vitae quam. Cras ornare, est a mollis finibus, ante diam porttitor dui, sed lobortis dui tellus et odio. Aenean in nibh massa. Morbi sollicitudin mollis velit nec finibus. Integer eget quam vel ante porta sagittis. Praesent faucibus nulla sit amet augue suscipit aliquam. Ut molestie enim congue est dapibus tempor. Nullam consectetur, erat non rhoncus suscipit, velit nulla efficitur turpis, ut volutpat lacus magna id sapien. Ut accumsan rutrum congue. Vestibulum sit amet consequat dui. Fusce in lacus tincidunt nisl tincidunt sollicitudin ac in nisi. Curabitur sit amet lacinia ipsum.
-
-                    Nunc vitae tristique arcu. Ut quis nulla massa. Suspendisse viverra mollis ligula, nec blandit arcu aliquam eget. Nullam auctor luctus diam, non tempor lacus pretium id. Praesent a odio eget tellus consequat faucibus nec id dui. Maecenas dapibus, sem at tincidunt bibendum, odio ipsum semper sapien, eu volutpat nisl nunc sed sem. Nulla sodales rhoncus nunc at viverra. Cras porta viverra leo sit amet fringilla. Curabitur vitae ultrices leo. In vitae odio auctor, ultricies dolor eu, interdum ante. Cras blandit est eu nibh posuere, vel laoreet orci efficitur.
+                <p style="font-size:20px;">
+                    Arreglos de camiones y automóviles, siguiendo los altos estándares y mejores prácticas profesionales.
                 </p>
             </div>
+
+
+            <div class="col-md-3">
+                <img src="~/Img/icons/spray-gun.png" alt="Pintura imagen" class="imgSmall" />
+                <h2>Pintura</h2>
+                <br>
+
+                <p style="font-size:20px">
+                    Excelentes trabajos de pintura para automóviles y camiones, con un gran catálogo de colores.
+                </p>
+            </div>
+
+
+            <div class="col-md-3">
+                <img src="~/Img/icons/clipboard.png" alt="Alternate Text" class="imgSmall" />
+                <h2>Revisiones</h2>
+                <br>
+
+                <p style="font-size:20px">
+                    Citas para revisiones de automoviles y camiones, cotización de arreglos y mantenimiento.
+                </p>
+            </div>
+
+
+            <div class="col-md-3">
+                <img src="~/Img/icons/settings.png" alt="Alternate Text" class="imgSmall" />
+                <h2>Otros servicios</h2>
+                <br>
+
+                <p style="font-size:20px">
+                    Tambien ofrecemos servicios como:
+                    <br />
+                    • Compra de accesorios.
+                    <br />
+                    • Repuestos para distintos automóviles.
+                </p>
+            </div>
+            
         </div>
 
 
+        <div class="row darker">
+            <br>
+            <div class="col-md-6 text-left">
+                <h2>¿Quiénes somos?</h2>
+                <br>
+
+                <p>
+                    Descripción del taller
+                </p>
+            </div>
+            <div class="col-md-6">
+                <img src="~/Img/TruckPrueba2.jpg" alt="Alternate Text" class="imgMed" />
+            </div>
+            <br /><br /><br /><br />
+        </div>
+
+        <div class="row">
+            <br>
+
+            <h1>Nuestra historia</h1><br>
+            <br>
+
+            <div class="col" style="text-align: left">
+                <p>
+                    Un poco de la historia del taller
+
+                </p>
+            </div>
+            <br /><br /><br /><br />
+        </div>
+        <div class="row">
+
+            <div class="col-xs-6">
+                <div class="map-responsive">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.1455143446683!2d-84.22366878474223!3d10.004836775694987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0f9d48339176f%3A0xebd422187fb705a8!2sTaller%20Gorro!5e0!3m2!1sen!2scr!4v1646776857007!5m2!1sen!2scr" width="400" height="300" style="border:0;" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                Imagen taller
+            </div>
+            <br /><br /><br /><br />
+        </div>
     </div>
 </div>
 

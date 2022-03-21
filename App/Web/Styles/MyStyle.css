@@ -12,8 +12,51 @@
     padding-bottom: 0px
 }
 
+@font-face {
+    font-family: myFont;
+    src: url('../fonts/Ubuntu-Regular.ttf');
+}
+.bodyStyle {
+    color: #171614 !important;
+    font-family: myFont !important;
+    letter-spacing: 0.2em !important;
+    font-size: 1.5em !important;
+}
+div p {
+    color: #515267;
+}
 
+body h1, h2 {
+    color: #346283;
+    
+}
+body p {
+    font-size: 20px;
+}
+h1 h2 {
+    margin-bottom: 20px;
+}
 
+body p {
+    color: #515267;
+}
+
+.font_white {
+    color: #FCFCFC;
+}
+
+.imgSmall{
+    height:60px;
+    width:60px;
+}
+.imgMed{
+    height: 35em;
+}
+.darker{
+    background-color: rgb(235, 235, 235);
+    padding-top:20px;
+    padding-bottom: 20px;
+}
 
 
 .bodyDiv {
@@ -59,20 +102,13 @@
     height:100px;
 }
 .Myfooter {
-    position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
     color: white;
     text-align: center;
-    /*    color: aliceblue;
-    position: absolute;
-    bottom: 0;
-    width: 100%;*/
 }
-.Myfooter a,p{
-    font-size: 12px;
-}
+
 
 
 .map-responsive {

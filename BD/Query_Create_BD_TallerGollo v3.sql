@@ -11,11 +11,13 @@ idUsuario int,
 fechaCita date,
 horaCita datetime,
 descripcion nvarchar(40),
-idTipoCita int
+idTipoCita int,
+estado bit
 );
 create table TipoCita(
 id int identity(1,1) primary key,
-descripcion nvarchar(40)
+descripcion nvarchar(40),
+estado bit
 )
 
 create table Usuario(
@@ -76,18 +78,21 @@ estado bit
 
 create table TipoProducto(
 id int identity(1,1) primary key,
-descripcionTipo nvarchar(20)
+descripcionTipo nvarchar(20),
+estado bit
 );
 
 create table TipoUnidad(
 id int identity(1,1) primary key,
-descripcionTipo nvarchar(20)
+descripcionTipo nvarchar(20),
+estado bit
 );
 
 create table Marca(
 id int identity(1,1) primary key,
 idTipoProducto int,
-descripcion nvarchar(15)
+descripcion nvarchar(15),
+estado bit
 );
 
 
@@ -103,6 +108,9 @@ alter table Producto add foreign key (idMarca) references Marca(id);
 alter table Producto add foreign key (idTipoUnidad) references TipoUnidad(id);
 alter table Cita add foreign key (idTipoCita) references TipoCita(id);
 
+
+insert into TipoUnidad values('Unidad',1);
+insert into TipoUnidad values('Peso',1);
 
 insert into TelefonoUsuario values ('123',1);
 insert into Rol values ('Test',1);
