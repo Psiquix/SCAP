@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using Web.Security;
 using Web.Utils;
 
 namespace SCAP.Controllers
@@ -16,6 +17,8 @@ namespace SCAP.Controllers
         {
             return View();
         }
+
+        [CustomAuthorize((int)Roles.Admin)]
         public ActionResult About()
         {
 
@@ -27,6 +30,8 @@ namespace SCAP.Controllers
             return View();
         }
 
+
+        
         public ActionResult LogIn()
         {
             return View();
@@ -69,6 +74,32 @@ namespace SCAP.Controllers
                 // Pasar el Error a la página que lo muestra
                 TempData["Message"] = ex.Message;
                 TempData.Keep();
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+        public ActionResult UnAuthorized()
+        {
+            try
+            {
+                ViewBag.Message = "Usuaior no autorizado en la página";
+
+                if (Session["User"] != null)
+                {
+                    Usuario oUsuario = Session["User"] as Usuario;
+                    Log.Warn($"El usuario {oUsuario.nombre}");
+                }
+
+                return View();
+            }
+            catch (Exception ex)
+            {
+                // Salvar el error en un archivo 
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                // Pasar el Error a la página que lo muestra
+                TempData["Message"] = ex.Message;
+                TempData["Redirect"] = "LogIn";
+                TempData["Redirect-Action"] = "Home";
                 return RedirectToAction("Default", "Error");
             }
         }

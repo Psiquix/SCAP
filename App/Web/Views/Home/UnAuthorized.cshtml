@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "No autorizado!";
+}
+<div class="row">
+    <div class="col text-center">
+        <img src="~/Img/icons/danger.png" alt="Alternate Text" style="height: auto; width: 250px" />
+        <h2 style="color:rgb(116, 0, 0)">¡¡¡Oh no!! Parece que no está autorizado a entrar en esta página!</h2>
+        <p>Por favor regrese al inicio o contacte a un administrador</p>
+        <button type="button" class="btn btn-danger btnMant">
+            @Html.ActionLink("Regresar al inicio", "Index", "Home")
+        </button>
+    </div>
+</div>
+
+
+
+

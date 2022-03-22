@@ -23,33 +23,65 @@
             <ul class="nav navbar-nav">
 
                 <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Producto")</li>
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                        Mantenimientos
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li>@Html.ActionLink("Productos", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
-                        <li>@Html.ActionLink("Tipos de Productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</li>
-                        <li>@Html.ActionLink("Marcas de Productos", "Index", "Marca", null, new { @class = "dropdown-item" })</li>
-                    </ul>
-                </li>
+                <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                <li>@Html.ActionLink("Sobre nosotros", "About", "Home")</li>
 
+                @if (Session["User"] != null)
+                {
+                    <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Producto")</li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                            Mantenimientos Productos
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Listado de productos", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Listado de tipos de productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Listado de marcas de productos", "Index", "Marca", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                            Mantenimientos Citas
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Listado de citas", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        @{
+                            Infrastructure.Models.Usuario oUser;
+                            if (Session["User"] != null)
+                            {
+                                oUser = (Infrastructure.Models.Usuario)Session["User"];
+                                if (oUser != null && oUser.idRol == 1)
+                                {
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                        Mantenimientos Usuarios
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>@Html.ActionLink("Listado de usuarios", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
+                                    </ul>
+                                }
+                            }
+                        }
+                    </li>
+                }
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="@Url.Action("Sign Up", "Usuario")" title="Sign Up" class="links">
-                        <img alt="List View" src="@Url.Content("/Img/icons/user.png")" style="height:30px">
-                        Sign Up
-                    </a>
-                </li>
-                <li>
-                    <a href="@Url.Action("LogIn", "Usuario")" title="Log In" class="links">
-                        <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
-                        Log In
-                    </a>
-                </li>
+
+                @if (Session["User"] != null)
+                {
+                    <li>
+                        <a href="@Url.Action("Desloguear", "Usuario")" title="Cerrar sesión" class="links">
+                            <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
+                            Cerrar sesión
+                        </a>
+                    </li>
+                }
+
             </ul>
         </div>
     </div>

@@ -3,15 +3,8 @@
     ViewBag.Title = "Log-in";
 }
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Log-In</title>
-</head>
-<body>
-    <div class="row">
+    <div class="row logIn">
         <div class="col-md-12 text-center">
             @using (Html.BeginForm("LogIn", "Home", FormMethod.Post))
             {
@@ -49,5 +42,4 @@
             }
         </div>
     </div>
-</body>
-</html>
+
