@@ -1,47 +1,50 @@
 ﻿@model Infrastructure.Models.TipoProducto
 
 @{
-    ViewBag.Title = "Editar Tipo";
+    ViewBag.Title = "Edit";
 }
 
+<h2>Edit</h2>
 
-<div class="jumbotron">
+@using (Html.BeginForm("Save", "TipoProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
 
-    @using (Html.BeginForm("Save", "TipoProducto"))
-    {
-        @Html.AntiForgeryToken()
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TipoProducto</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id)
 
-        <div class="card-body">
-            <div class="row mb-3">
-                <div class="form-horizontal">
-                    <h4>Editar Tipo</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    @Html.HiddenFor(model => model.id)
-
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.descripcionTipo, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.descripcionTipo, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.descripcionTipo, "", new { @class = "text-danger" })
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Guardar" class="btn btn-success" />
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.descripcionTipo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.descripcionTipo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.descripcionTipo, "", new { @class = "text-danger" })
             </div>
         </div>
-    }
 
-    <div>
-        @Html.ActionLink("Regresar al listado", "Index")
+        <div class="form-group">
+            @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                    @Html.CheckBoxFor(model => model.estado)
+                    @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
     </div>
-</div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
 }
+
+<div>
+    <a href="@Url.Action("Index", "TipoProducto")" title="Cerrar sesión" class="btn btn-primary">
+        <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
+        Volver a lista
+    </a>
+</div>

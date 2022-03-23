@@ -22,11 +22,9 @@ namespace Infrastructure.Repository
                     /* La carga diferida retrasa la carga de datos relacionados,
                      * hasta que lo solicite específicamente.*/
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    TipoProducto oTipo = new TipoProducto()
-                    {
-                        id = pId
-                    };
-                    ctx.Entry(oTipo).State = EntityState.Deleted;
+                    TipoProducto oTipo = GetTipoById(pId);
+                    oTipo.estado = false;
+                    ctx.Entry(oTipo).State = EntityState.Modified;
                     salida = ctx.SaveChanges();
                 }
             }
@@ -43,8 +41,17 @@ namespace Infrastructure.Repository
                 throw;
             }
         }
-
-        public IEnumerable<TipoProducto> GetListaTipo()
+        public IEnumerable<TipoProducto> GetListaTipoActive()
+        {
+            IEnumerable<TipoProducto> lista = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                lista = ctx.TipoProductoes.Include(x => x.Productoes).Where(x => x.estado == true).ToList<TipoProducto>();
+            }
+            return lista;
+        }
+        public IEnumerable<TipoProducto> GetListaTipoAll()
         {
             IEnumerable<TipoProducto> lista = null;
             using (MyContext ctx = new MyContext())
@@ -93,6 +100,7 @@ namespace Infrastructure.Repository
                     oTipo = GetTipoById(tipo.id);
                     if (oTipo == null)
                     {
+                        tipo.estado = true;
                         ctx.TipoProductoes.Add(tipo);
                     }
                     else

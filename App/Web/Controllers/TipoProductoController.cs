@@ -8,20 +8,23 @@ using System.Web.Mvc;
 using Web.Utils;
 using System.Reflection;
 using System.IO;
+using Web.Security;
 
 namespace Web.Controllers
 {
     public class TipoProductoController : Controller
     {
         IServiceTipoProd _ServiceTipo = new ServiceTipoProd();
-        // GET: TipoProducto
+   
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
             IEnumerable<TipoProducto> lista = null;
             try
             {
                 IServiceTipoProd _ServiceProducto = new ServiceTipoProd();
-                lista = _ServiceTipo.GetListaTipo();
+                lista = _ServiceTipo.GetListaTipoActive();
             }
             catch (Exception e)
             {
@@ -30,72 +33,16 @@ namespace Web.Controllers
             return View(lista);
         }
 
-        // GET: TipoProducto/Details/5
-        public ActionResult Details(int? id)
-        {
-            TipoProducto oTipo = null;
-            try
-            {
-                // Si va null
-                if (id == null)
-                {
-                    return RedirectToAction("Index");
-                }
-                oTipo = _ServiceTipo.GetTipoById(id.Value);
-                if (oTipo == null)
-                {
-                    TempData["Message"] = "No existe el tipo solicitado";
-                    TempData["Redirect"] = "TipoProducto";
-                    TempData["Redirect-Action"] = "Index";
-                    // Redireccion a la captura del Error
-                    return RedirectToAction("Default", "Error");
-                }
-                return View(oTipo);
-            }
-            catch (Exception ex)
-            {
-                // Salvar el error en un archivo 
-                Log.Error(ex, MethodBase.GetCurrentMethod());
-                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "TipoProducto";
-                TempData["Redirect-Action"] = "Index";
-                // Redireccion a la captura del Error
-                return RedirectToAction("Default", "Error");
-            }
-        }
-
-        // GET: TipoProducto/Create
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: TipoProducto/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TipoProducto/Edit/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int? id)
         {
-            //TipoProducto oType = _ServiceTipo.GetTipoById(id);
-
-            //if (oType == null)
-            //{
-            //    return RedirectToAction("Index");
-            //}
-            //return View(oType);
             TipoProducto oType = null;
             try
             {
@@ -129,7 +76,9 @@ namespace Web.Controllers
             }
         }
 
+
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Save(TipoProducto pType)
         {
             try
@@ -137,7 +86,6 @@ namespace Web.Controllers
                 if (ModelState.IsValid)
                 {
                     TipoProducto oType = _ServiceTipo.Save(pType);
-                    //_ServiceTipo.Save(pType);
                 }
                 else
                 {
@@ -159,23 +107,8 @@ namespace Web.Controllers
             }
         }
 
-        // POST: TipoProducto/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: TipoProducto/Delete/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id)
         {
             if (ModelState.IsValid)
@@ -183,28 +116,92 @@ namespace Web.Controllers
                 _ServiceTipo.Delete(id);
                 return RedirectToAction("Index");
             }
-            //else
-            //{
-
-            //}
-
             return RedirectToAction("Index");
         }
 
-        // POST: TipoProducto/Delete/5
+        //Acceso solo admin
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [CustomAuthorize((int)Roles.Admin)]
+        public ActionResult SaveAll(TipoProducto pType)
         {
             try
             {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    TipoProducto oType = _ServiceTipo.Save(pType);
+                }
+                else
+                {
+                    // Valida Errores si Javascript está deshabilitado
+                    Util.ValidateErrors(this);
+                    return View("Create", pType);
+                }
+                return RedirectToAction("ListAll");
             }
-            catch
+            catch (Exception ex)
             {
-                return View();
+                // Salvar el error en un archivo 
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "TipoProducto";
+                TempData["Redirect-Action"] = "Index";
+                // Redireccion a la captura del Error
+                return RedirectToAction("Default", "Error");
             }
         }
+
+        [CustomAuthorize((int)Roles.Admin)]
+        public ActionResult ListAll()
+        {
+            IEnumerable<TipoProducto> lista = null;
+            try
+            {
+                IServiceTipoProd _ServiceProducto = new ServiceTipoProd();
+                lista = _ServiceTipo.GetListaTipoAll();
+            }
+            catch (Exception e)
+            {
+                Log.Error(e, MethodBase.GetCurrentMethod());
+            }
+            return View(lista);
+        }
+
+        [CustomAuthorize((int)Roles.Admin)]
+        public ActionResult EditAll(int? id)
+        {
+            TipoProducto oType = null;
+            try
+            {
+                // Si va null
+                if (id == null)
+                {
+                    return RedirectToAction("Index");
+                }
+                oType = _ServiceTipo.GetTipoById(id.Value);
+
+                if (oType == null)
+                {
+                    TempData["Message"] = "No existe el tipo solicitado";
+                    TempData["Redirect"] = "TipoProducto";
+                    TempData["Redirect-Action"] = "Index";
+                    // Redireccion a la captura del Error
+                    return RedirectToAction("Default", "Error");
+                }
+
+                return View(oType);
+            }
+            catch (Exception ex)
+            {
+                // Salvar el error en un archivo 
+                Log.Error(ex, MethodBase.GetCurrentMethod());
+                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+                TempData["Redirect"] = "TipoProducto";
+                TempData["Redirect-Action"] = "Index";
+                // Redireccion a la captura del Error
+                return RedirectToAction("Default", "Error");
+            }
+        }
+
+
     }
 }

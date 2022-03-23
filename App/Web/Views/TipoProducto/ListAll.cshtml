@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Infrastructure.Models.TipoProducto>
+
+@{
+    ViewBag.Title = "Tipos de productos";
+}
+
+<div class="jumbotron">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <center><h2>Listado completo de tipos de productos</h2></center>
+
+    <button type="button" class="btn btn-success btnMant">
+        @Html.ActionLink("Nuevo", "Create")
+    </button>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-active">
+                        <th>
+                            @Html.DisplayNameFor(model => model.id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.descripcionTipo)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.estado)
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="result">
+                    @foreach (var item in Model)
+                    {
+                    <tr class="table-secondary">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.descripcionTipo)
+                        </td>
+                        <td>
+                            @if (item.estado == true)
+                            {
+                                <p>Activo</p>
+                            }
+                            else
+                            {
+                                <p>Desactivo</p>
+                            }
+
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
+                                @Html.ActionLink("Editar", "EditAll", new { id = item.id })
+                            </button>|
+                            <button type="button" class="btn btn-danger btnMant" style="color:aliceblue">
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

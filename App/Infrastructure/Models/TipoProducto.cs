@@ -24,7 +24,7 @@ namespace Infrastructure.Models
     
         public int id { get; set; }
         public string descripcionTipo { get; set; }
-        public Nullable<bool> estado { get; set; }
+        public bool estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Producto> Productoes { get; set; }

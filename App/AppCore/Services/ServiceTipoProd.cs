@@ -16,12 +16,19 @@ namespace AppCore.Services
             oRepository.Delete(pId);
         }
 
-        public IEnumerable<TipoProducto> GetListaTipo()
+        public IEnumerable<TipoProducto> GetListaTipoActive()
         {
             IRepTipoProd rep = new RepTipoProd();
-            return rep.GetListaTipo();
+            return rep.GetListaTipoActive();
          }
-            
+
+        public IEnumerable<TipoProducto> GetListaTipoAll()
+        {
+            IRepTipoProd rep = new RepTipoProd();
+            return rep.GetListaTipoAll();
+        }
+
+
 
         public TipoProducto GetTipoById(int id)
         {

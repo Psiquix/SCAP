@@ -9,7 +9,8 @@ namespace Infrastructure.Repository
 {
     public interface IRepTipoProd
     {
-        IEnumerable<TipoProducto> GetListaTipo();
+        IEnumerable<TipoProducto> GetListaTipoActive();
+        IEnumerable<TipoProducto> GetListaTipoAll();
         TipoProducto GetTipoById(int id);
         TipoProducto Save(TipoProducto tipo);
         void Delete(int pId);

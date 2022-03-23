@@ -8,13 +8,19 @@ using System.Web.Mvc;
 using Web.Utils;
 using System.Reflection;
 using System.IO;
+using Web.Security;
 
 namespace Web.Controllers
 {
     public class MarcaController : Controller
     {
         IServiceMarca _ServiceMarca = new ServiceMarca();
-        // GET: Marca
+
+
+
+        //Pag de listado de marcas
+
+        [CustomAuthorize((int)Roles.Admin,(int)Roles.Emp )]
         public ActionResult Index()
         {
             IEnumerable<Marca> lista = null;
@@ -30,7 +36,9 @@ namespace Web.Controllers
             return View(lista);
         }
 
-        // GET: Marca/Details/5
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        //Pag de detalles de marca
         public ActionResult Details(int? id)
         {
             Marca oMarca = null;
@@ -64,21 +72,28 @@ namespace Web.Controllers
             }
         }
 
-        // GET: Marca/Create
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        //Pag de crear marca
         public ActionResult Create()
         {
             ViewBag.idTipoProd = ListaTipoProd();
             return View();
         }
 
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+
         private SelectList ListaTipoProd()
         {
             IServiceTipoProd rep = new ServiceTipoProd();
-            IEnumerable<TipoProducto> lista = rep.GetListaTipo();
+            IEnumerable<TipoProducto> lista = rep.GetListaTipoActive();
             return new SelectList(lista, "id", "descripcionTipo");
         }
 
-        // GET: Marca/Edit/5
+        
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        //Pag de edicion de marca
         public ActionResult Edit(int? id)
         {
             ViewBag.idTipoProd = ListaTipoProd();
@@ -123,6 +138,8 @@ namespace Web.Controllers
 
         // POST: Marca/Create
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        //Pag de inicio
         public ActionResult Create(FormCollection collection)
         {
             try
@@ -140,6 +157,7 @@ namespace Web.Controllers
         
 
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Save(Marca pMarca)
         {
             try
@@ -171,6 +189,7 @@ namespace Web.Controllers
 
         // POST: Marca/Edit/5
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -186,6 +205,7 @@ namespace Web.Controllers
         }
 
         // GET: Marca/Delete/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id)
         {
             if (ModelState.IsValid)
@@ -203,6 +223,7 @@ namespace Web.Controllers
 
         // POST: Marca/Delete/5
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

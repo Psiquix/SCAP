@@ -1,20 +1,20 @@
 ﻿@model IEnumerable<Infrastructure.Models.TipoProducto>
 
 @{
-    ViewBag.Title = "Listado de Tipos";
+    ViewBag.Title = "Tipos de productos";
 }
 
 <div class="jumbotron">
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
 
-    <center><h2>Listado de Tipos</h2></center>
+    <center><h2>Listado de tipos de productos</h2></center>
 
     <button type="button" class="btn btn-success btnMant">
         @Html.ActionLink("Nuevo", "Create")
     </button>
     <div class="row">
-        <div class="col-lg-9">
+        <div class="col">
             <table class="table table-hover">
                 <thead>
                     <tr class="table-active">
@@ -39,9 +39,6 @@
                             <td>
                                 <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
                                     @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                                </button>|
-                                <button type="button" class="btn btn-info btnMant" style="color:aliceblue">
-                                    @Html.ActionLink("Detalle", "Details", new { id = item.id })
                                 </button>|
                                 <button type="button" class="btn btn-danger btnMant" style="color:aliceblue">
                                     @Html.ActionLink("Eliminar", "Delete", new { id = item.id })

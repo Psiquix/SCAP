@@ -310,8 +310,6 @@
     <Content Include="Views\Marca\Index.cshtml" />
     <Content Include="Views\TipoProducto\Create.cshtml" />
     <Content Include="Views\Marca\Create.cshtml" />
-    <Content Include="Views\TipoProducto\Edit.cshtml" />
-    <Content Include="Views\TipoProducto\Details.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Unauthorized.cshtml" />
     <Content Include="Views\Marca\Details.cshtml" />
@@ -319,6 +317,9 @@
     <Content Include="Views\Producto\IndexCatalogo.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
     <Content Include="Views\Home\UnAuthorized.cshtml" />
+    <Content Include="Views\TipoProducto\Edit.cshtml" />
+    <Content Include="Views\TipoProducto\ListAll.cshtml" />
+    <Content Include="Views\TipoProducto\EditAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

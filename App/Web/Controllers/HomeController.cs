@@ -13,31 +13,34 @@ namespace SCAP.Controllers
 {
     public class HomeController : Controller
     {
+        //Pag de inicio
         public ActionResult Index()
         {
             return View();
         }
 
-        [CustomAuthorize((int)Roles.Admin)]
+        //Pag de Sobre nosotros
         public ActionResult About()
         {
 
             return View();
         }
 
+        //Pag de contactos
         public ActionResult Contact()
         {
             return View();
         }
 
 
-        
+        //Pag de Log In
         public ActionResult LogIn()
         {
             return View();
         }
 
         [HttpPost]
+        //Pag de inicio, resultado de log In
         public ActionResult LogIn(Usuario user)
         {
             IServiceUsuario _ServiceUser = new ServiceUsuario();
@@ -78,11 +81,13 @@ namespace SCAP.Controllers
             }
         }
 
+
+        //Pag no autorizado
         public ActionResult UnAuthorized()
         {
             try
             {
-                ViewBag.Message = "Usuaior no autorizado en la página";
+                ViewBag.Message = "No autorizado";
 
                 if (Session["User"] != null)
                 {

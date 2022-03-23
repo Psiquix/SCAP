@@ -8,30 +8,34 @@ using System.Web.Mvc;
 using Web.Utils;
 using System.Reflection;
 using System.IO;
-
+using Web.Security;
 
 namespace Web.Controllers
 {
     public class UsuarioController : Controller
     {
         // GET: Usuario
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Usuario/Details/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Details(int id)
         {
             return View();
         }
 
         // GET: Usuario/Create
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Create()
         {
             return View();
         }
 
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         private SelectList ListaRoles()
         {
             IServiceRol _Service = new ServiceRol();
@@ -40,6 +44,7 @@ namespace Web.Controllers
         }
         // POST: Usuario/Create
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Create(Usuario pUsuario)
         {
             ViewBag.idRol = ListaRoles();
@@ -66,6 +71,7 @@ namespace Web.Controllers
             }
         }
 
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Unauthorized()
         {
             try
@@ -90,6 +96,8 @@ namespace Web.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult LogOut()
         {
             try
@@ -111,6 +119,8 @@ namespace Web.Controllers
         }
 
         // GET: Usuario/Edit/5
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int id)
         {
             return View();
@@ -118,6 +128,7 @@ namespace Web.Controllers
 
         // POST: Usuario/Edit/5
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int id, FormCollection collection)
         {
             try
@@ -133,6 +144,7 @@ namespace Web.Controllers
         }
 
         // GET: Usuario/Delete/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id)
         {
             return View();
@@ -140,6 +152,7 @@ namespace Web.Controllers
 
         // POST: Usuario/Delete/5
         [HttpPost]
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id, FormCollection collection)
         {
             try

@@ -145,12 +145,15 @@ namespace Infrastructure.Models
     }
     internal partial class TipoProductoMetadata
     {
-        [Display(Name = "Id")]
+        [Display(Name = "Número de identificación")]
         public int id { get; set; }
 
         [Display(Name = "Tipo de producto")]
         [Required(ErrorMessage = "El campo tipo producto es requerido")]
         public string descripcionTipo { get; set; }
+
+        [Display(Name = "Estado")]
+        public bool estado { get; set; }
 
     }
     internal partial class TipoCitaMetadata

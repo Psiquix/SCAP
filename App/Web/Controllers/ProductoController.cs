@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Web.Utils;
 using System.Reflection;
 using System.IO;
+using Web.Security;
 
 namespace SCAP.Controllers
 {
@@ -15,6 +16,8 @@ namespace SCAP.Controllers
     {
         // Listado productos
         IServiceProducto _ServiceProducto = new ServiceProducto();
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
             IEnumerable<Producto> lista = null;
@@ -30,6 +33,7 @@ namespace SCAP.Controllers
             return View(lista);
         }
 
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult IndexCatalogo()
         {
             IEnumerable<Producto> lista = null;
@@ -45,6 +49,7 @@ namespace SCAP.Controllers
             return View(lista);
         }
 
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Details(int? id)
         {
             Producto oProducto = null;
@@ -79,6 +84,7 @@ namespace SCAP.Controllers
         }
 
         // GET: Producto/Create
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Create()
         {
             ViewBag.idMarca = ListaMarca();
@@ -87,19 +93,23 @@ namespace SCAP.Controllers
             return View();
         }
 
-
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         private SelectList ListaMarca()
         {
             IServiceMarca rep = new ServiceMarca();
             IEnumerable<Marca> lista = rep.GetListaMarca();
             return new SelectList(lista, "id", "descripcion");
         }
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         private SelectList ListaTipoProd()
         {
             IServiceTipoProd rep = new ServiceTipoProd();
-            IEnumerable<TipoProducto> lista = rep.GetListaTipo();
+            IEnumerable<TipoProducto> lista = rep.GetListaTipoActive();
             return new SelectList(lista,"id", "descripcionTipo");
         }
+
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         private SelectList ListaTipoUnidad()
         {
             IServiceTipoUnidad rep = new ServiceTipoUnidad();
@@ -107,6 +117,7 @@ namespace SCAP.Controllers
             return new SelectList(lista, "id", "descripcionTipo");
         }
         //// POST: Producto/Create
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         [HttpPost]
         public ActionResult Save(Producto prod, HttpPostedFileBase ImageFile)
         {
@@ -139,6 +150,7 @@ namespace SCAP.Controllers
         }
 
         //// GET: Producto/Edit/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int? id)
         {
             Producto oProducto = null;
@@ -173,24 +185,7 @@ namespace SCAP.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
-
-        //// POST: Producto/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add update logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
-
-        //// GET: Producto/Delete/5
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id)
         {
             if (ModelState.IsValid)
