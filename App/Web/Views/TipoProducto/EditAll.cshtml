@@ -3,16 +3,16 @@
 @{
     ViewBag.Title = "Editar";
 }
+<div class="jumbotron">
+    <h2>Editando</h2>
 
-<h2>Editando</h2>
+    @using (Html.BeginForm("SaveAll", "TipoProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
 
-@using (Html.BeginForm("SaveAll", "TipoProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+        @Html.AntiForgeryToken()
 
-    @Html.AntiForgeryToken()
+        <div class="row">
 
-    <div class="row">
-  
             <h4>Tipo de producto</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -36,20 +36,22 @@
             </div>
 
             <div class="form-group row">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Save" class="btn btn-default" />
+                <div class="col-md-offset-2 col-md-2">
+                    <input type="submit" value="Gurdar" class="btn btn-success" />
                 </div>
             </div>
 
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-1">
+            <a href="@Url.Action("ListAll", "TipoProducto")" title="Volver" class="btn btn-info">
+                <img alt="List View" src="@Url.Content("/Img/icons/arrow.png")" style="height:15px">
+                Volver a lista
+            </a>
+        </div>
     </div>
-}
-
-<div class="row">
-    <div class="col-lg-1">
-        <a href="@Url.Action("ListAll", "TipoProducto")" title="Cerrar sesión" class="btn btn-primary">
-            <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
-            Volver a lista
-        </a>
-    </div>
-
 </div>
+
+
+

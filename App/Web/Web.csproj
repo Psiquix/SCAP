@@ -235,6 +235,7 @@
     <Content Include="Img\Foto_Carrusel1.jpg" />
     <Content Include="Img\Foto_Carrusel2.jpg" />
     <Content Include="Img\Foto_Carrusel3.jpg" />
+    <Content Include="Img\Icons\arrow.png" />
     <Content Include="Img\Icons\calendar.png" />
     <Content Include="Img\Icons\car.png" />
     <Content Include="Img\Icons\clipboard.png" />
@@ -312,7 +313,6 @@
     <Content Include="Views\Marca\Create.cshtml" />
     <Content Include="Views\Usuario\Create.cshtml" />
     <Content Include="Views\Usuario\Unauthorized.cshtml" />
-    <Content Include="Views\Marca\Details.cshtml" />
     <Content Include="Views\Marca\Edit.cshtml" />
     <Content Include="Views\Producto\IndexCatalogo.cshtml" />
     <Content Include="Views\Producto\Edit.cshtml" />
@@ -320,6 +320,8 @@
     <Content Include="Views\TipoProducto\Edit.cshtml" />
     <Content Include="Views\TipoProducto\ListAll.cshtml" />
     <Content Include="Views\TipoProducto\EditAll.cshtml" />
+    <Content Include="Views\Marca\ListAll.cshtml" />
+    <Content Include="Views\Marca\EditAll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

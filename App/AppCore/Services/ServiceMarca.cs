@@ -16,10 +16,15 @@ namespace AppCore.Services
             oRepository.Delete(pId);
         }
 
-        public IEnumerable<Marca> GetListaMarca()
+        public IEnumerable<Marca> GetListaMarcaActive()
         {
             IRepMarca rep = new RepMarca();
-            return rep.GetListaMarca();
+            return rep.GetListaMarcaActive();
+        }
+        public IEnumerable<Marca> GetListaMarcaAll()
+        {
+            IRepMarca rep = new RepMarca();
+            return rep.GetListaMarcaAll();
         }
 
         public Marca GetMarcaById(int id)

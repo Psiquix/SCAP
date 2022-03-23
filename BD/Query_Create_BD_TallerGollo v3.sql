@@ -84,14 +84,14 @@ estado bit
 
 create table TipoUnidad(
 id int identity(1,1) primary key,
-descripcionTipo nvarchar(20),
+descripcionTipo nvarchar(50),
 estado bit
 );
 
 create table Marca(
 id int identity(1,1) primary key,
 idTipoProducto int,
-descripcion nvarchar(15),
+descripcion nvarchar(50),
 estado bit
 );
 
@@ -123,3 +123,6 @@ insert into Usuario values (2,'emp',' ','emp@root','123',1,2,1);
 select * from Rol
 select * from producto
 select * from Usuario
+select * from TipoProducto
+select * from Marca
+

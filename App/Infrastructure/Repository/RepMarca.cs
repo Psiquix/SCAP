@@ -24,9 +24,9 @@ namespace Infrastructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
                     Marca oMarca = new Marca()
                     {
-                        id = pId
+                        estado = false
                     };
-                    ctx.Entry(oMarca).State = EntityState.Deleted;
+                    ctx.Entry(oMarca).State = EntityState.Modified;
                     salida = ctx.SaveChanges();
                 }
             }
@@ -44,7 +44,17 @@ namespace Infrastructure.Repository
             }
         }
 
-        public IEnumerable<Marca> GetListaMarca()
+        public IEnumerable<Marca> GetListaMarcaActive()
+        {
+            IEnumerable<Marca> lista = null;
+            using (MyContext ctx = new MyContext())
+            {
+                ctx.Configuration.LazyLoadingEnabled = false;
+                lista = ctx.Marcas.Where(x => x.estado == true).ToList<Marca>();
+            }
+            return lista;
+        }
+        public IEnumerable<Marca> GetListaMarcaAll()
         {
             IEnumerable<Marca> lista = null;
             using (MyContext ctx = new MyContext())
@@ -54,7 +64,6 @@ namespace Infrastructure.Repository
             }
             return lista;
         }
-
         public Marca GetMarcaById(int id)
         {
             Marca oMarca = null;
@@ -93,6 +102,7 @@ namespace Infrastructure.Repository
                     oMarca = GetMarcaById(marca.id);
                     if (oMarca == null)
                     {
+                        marca.estado = true;
                         ctx.Marcas.Add(marca);
                     }
                     else

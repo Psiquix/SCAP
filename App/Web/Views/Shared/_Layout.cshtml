@@ -44,13 +44,26 @@
                                     oUser = (Infrastructure.Models.Usuario)Session["User"];
                                     if (oUser != null && oUser.idRol == 1)
                                     {
-            
-                                     <li>@Html.ActionLink("Listado completo de tipo producto", "ListAll", "TipoProducto", null, new { @class = "dropdown-item" })</li>
+
+                                        <li>@Html.ActionLink("Listado completo de tipo producto", "ListAll", "TipoProducto", null, new { @class = "dropdown-item" })</li>
 
                                     }
                                 }
                             }
                             <li>@Html.ActionLink("Listado de marcas de productos", "Index", "Marca", null, new { @class = "dropdown-item" })</li>
+                            @{
+                                if (Session["User"] != null)
+                                {
+                                    oUser = (Infrastructure.Models.Usuario)Session["User"];
+                                    if (oUser != null && oUser.idRol == 1)
+                                    {
+
+                                        <li>@Html.ActionLink("Listado completo de marca", "ListAll", "Marca", null, new { @class = "dropdown-item" })</li>
+
+                                    }
+                                }
+                            }
+
                         </ul>
                     </li>
                     <li class="nav-item dropdown">

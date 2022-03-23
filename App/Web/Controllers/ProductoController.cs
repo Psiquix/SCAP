@@ -97,7 +97,7 @@ namespace SCAP.Controllers
         private SelectList ListaMarca()
         {
             IServiceMarca rep = new ServiceMarca();
-            IEnumerable<Marca> lista = rep.GetListaMarca();
+            IEnumerable<Marca> lista = rep.GetListaMarcaActive();
             return new SelectList(lista, "id", "descripcion");
         }
 

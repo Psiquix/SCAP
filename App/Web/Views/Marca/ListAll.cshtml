@@ -1,17 +1,16 @@
-﻿@model IEnumerable<Infrastructure.Models.TipoProducto>
+﻿@model IEnumerable<Infrastructure.Models.Marca>
 
 @{
     ViewBag.Title = "Listado completo";
 }
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+
 
 <div class="jumbotron">
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-
-    <center><h2>Listado completo de tipos de productos</h2></center>
-
+    <center><h2>Listado completo de marcas</h2></center>
     <div class="col-lg-1">
-        <a href="@Url.Action("Create", "TipoProducto")" title="Crear" class="btn btn-success">
+        <a href="@Url.Action("Create", "Marca")" title="Crear" class="btn btn-success">
             Nuevo
         </a>
     </div>
@@ -19,27 +18,28 @@
         <div class="col">
             <table class="table table-hover">
                 <thead>
-                    <tr class="table-active">
+                    <tr>
                         <th>
-                            @Html.DisplayNameFor(model => model.id)
+                            @Html.DisplayNameFor(model => model.idTipoProducto)
                         </th>
                         <th>
-                            @Html.DisplayNameFor(model => model.descripcionTipo)
+                            @Html.DisplayNameFor(model => model.descripcion)
                         </th>
                         <th>
                             @Html.DisplayNameFor(model => model.estado)
                         </th>
+                        <th></th>
                     </tr>
                 </thead>
-                <tbody id="result">
+                <tbody>
                     @foreach (var item in Model)
                     {
-                        <tr class="table-secondary">
+                        <tr>
                             <td>
-                                @Html.DisplayFor(modelItem => item.id)
+                                @Html.DisplayFor(modelItem => item.idTipoProducto)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.descripcionTipo)
+                                @Html.DisplayFor(modelItem => item.descripcion)
                             </td>
                             <td>
                                 @if (item.estado == true)
@@ -53,17 +53,20 @@
 
                             </td>
                             <td>
-                                <a href="@Url.Action("EditAll", "TipoProducto",new { id = item.id })" title="Editar" class="btn btn-primary">
+                                <a href="@Url.Action("EditAll", "Marca",new { id = item.id })" title="Editar" class="btn btn-primary">
                                     Editar
                                 </a>|
-                                <a href="@Url.Action("Delete", "TipoProducto",new { id = item.id })" title="Delete" class="btn btn-danger">
+                                <a href="@Url.Action("Delete", "Marca",new { id = item.id })" title="Delete" class="btn btn-danger">
                                     Desactivar
                                 </a>
                             </td>
                         </tr>
                     }
                 </tbody>
+
             </table>
         </div>
     </div>
+
 </div>
+

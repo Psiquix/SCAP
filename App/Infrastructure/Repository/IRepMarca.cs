@@ -9,7 +9,8 @@ namespace Infrastructure.Repository
 {
     public interface IRepMarca
     {
-        IEnumerable<Marca> GetListaMarca();
+        IEnumerable<Marca> GetListaMarcaActive();
+        IEnumerable<Marca> GetListaMarcaAll();
         Marca GetMarcaById(int id);
         void Save(Marca marca);
         void Delete(int pId);

@@ -1,0 +1,61 @@
+﻿@model Infrastructure.Models.Marca
+
+@{
+    ViewBag.Title = "EditAll";
+}
+<div class="jumbotron">
+    <h2>Editando</h2>
+
+    @using (Html.BeginForm("SaveAll", "Marca", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="row">
+            <h4>Marca</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.id)
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.idTipoProducto, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.DropDownList("idTipoProducto",
+                    (SelectList)ViewBag.idTipoProd,
+                    "Seleccione el tipo de producto",
+                    new { htmlAttributes = new { @class = "form-control" } })
+                </div>
+            </div>
+
+            <div class="form-group row">
+                @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group row">
+                @Html.LabelFor(model => model.estado, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-2">
+                    @Html.CheckBoxFor(model => model.estado)
+                    @Html.ValidationMessageFor(model => model.estado, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-md-offset-2 col-md-2">
+                    <input type="submit" value="Guardar" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    }
+    <div class="row">
+        <div class="col-lg-1">
+            <a href="@Url.Action("ListAll", "Marca")" title="Volver" class="btn btn-info">
+                <img alt="List View" src="@Url.Content("/Img/icons/arrow.png")" style="height:15px">
+                Volver a lista
+            </a>
+        </div>
+    </div>
+
+</div>

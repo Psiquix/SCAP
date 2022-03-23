@@ -14,34 +14,38 @@
         @Scripts.Render("~/bundles/jqueryval")
 
         <div class="jumbotron">
-            <center><h2>Crear un Nuevo Tipo</h2></center>
+            <center><h2>Crear un nuevo tipo de producto</h2></center>
 
             @using (Html.BeginForm("Save", "TipoProducto", FormMethod.Post, new { enctype = "multipart/form-data" }))
             {
                 @Html.AntiForgeryToken()
 
-                <div class="form-horizontal">
+                <div class="row">
                     <h4>Tipo de Producto</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
+                    <div class="form-group row">
                         @Html.LabelFor(model => model.descripcionTipo, htmlAttributes: new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
+                        <div class="col-md-2">
                             @Html.EditorFor(model => model.descripcionTipo, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.descripcionTipo, "", new { @class = "text-danger" })
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+                    <div class="form-group row">
+                        <div class="col-md-offset-2 col-md-2">
                             <input type="submit" value="Crear" class="btn btn-success" />
                         </div>
                     </div>
                 </div>
             }
-
-            <div>
-                @Html.ActionLink("Regresar al listado", "Index")
+            <div class="row">
+                <div class="col-lg-1">
+                    <a href="@Url.Action("Index", "TipoProducto")" title="Volver" class="btn btn-info">
+                        <img alt="List View" src="@Url.Content("/Img/icons/arrow.png")" style="height:15px">
+                        Volver a lista
+                    </a>
+                </div>
             </div>
         </div>
     </body>
