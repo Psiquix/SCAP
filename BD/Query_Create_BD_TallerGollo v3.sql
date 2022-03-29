@@ -76,7 +76,9 @@ idTipoProducto int,
 idMarca int,
 precioUnitario float,
 cantidadNum int null,
+cantMinNum int,
 cantidadPeso float null,
+cantMinPeso int,
 imagen Varbinary(max),
 estado bit
 );
@@ -142,4 +144,4 @@ select * from producto
 select * from Usuario
 select * from TipoProducto
 select * from Marca
-
+select * from Orden
