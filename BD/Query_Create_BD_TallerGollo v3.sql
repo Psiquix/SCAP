@@ -117,6 +117,18 @@ alter table Cita add foreign key (idTipoCita) references TipoCita(id);
 insert into TipoUnidad values('Unidad',1);
 insert into TipoUnidad values('Peso',1);
 
+Insert into TipoProducto values('Aceite', 1);
+Insert into TipoProducto values('Grasa', 1);
+Insert into TipoProducto values('Anticongelante', 1);
+
+Insert into Marca values(1, 'Motul', 1);
+Insert into Marca values(2, 'Bardahl', 1);
+Insert into Marca values(3, 'Freezetone', 1);
+
+Insert into TipoCita values('Reparación', 1);
+Insert into TipoCita values('Mecánica rápida', 1);
+Insert into TipoCita values('Pintura', 1);
+
 insert into TelefonoUsuario values ('88888888',1);
 
 insert into Rol values ('Admin',1);
