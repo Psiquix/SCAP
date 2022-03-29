@@ -8,7 +8,6 @@
     @Styles.Render("~/Styles/MyStyle.css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    `
     <link href="~/Styles/MyStyle.css" rel="stylesheet" />
 
 </head>
@@ -16,32 +15,33 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a href="#">
                     <img src="~/Img/Logo.png" alt="logoImg" class="logo" />
                 </a>
             </div>
-            <ul class="nav navbar-nav">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
 
-                <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
-                <li>@Html.ActionLink("Sobre nosotros", "About", "Home")</li>
-                <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Carrito")</li>
+                    @if (Session["User"] != null)
+                    {
 
-                @if (Session["User"] != null)
-                {
-
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            Mantenimientos Productos
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Listado de productos", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
-                            <li>@Html.ActionLink("Listado de tipos de productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</li>
-                            @{
-                                Infrastructure.Models.Usuario oUser;
-                                if (Session["User"] != null)
-                                {
+                        <li class="dropdown">
+                            @* Productos *@
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Mantenimientos Productos
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Listado de productos", "Index", "Producto", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Listado de tipos de productos", "Index", "TipoProducto", null, new { @class = "dropdown-item" })</li>
+                                @{
+                                    Infrastructure.Models.Usuario oUser;
                                     oUser = (Infrastructure.Models.Usuario)Session["User"];
                                     if (oUser != null && oUser.idRol == 1)
                                     {
@@ -50,11 +50,8 @@
 
                                     }
                                 }
-                            }
-                            <li>@Html.ActionLink("Listado de marcas de productos", "Index", "Marca", null, new { @class = "dropdown-item" })</li>
-                            @{
-                                if (Session["User"] != null)
-                                {
+                                <li>@Html.ActionLink("Listado de marcas de productos", "Index", "Marca", null, new { @class = "dropdown-item" })</li>
+                                @{
                                     oUser = (Infrastructure.Models.Usuario)Session["User"];
                                     if (oUser != null && oUser.idRol == 1)
                                     {
@@ -63,55 +60,58 @@
 
                                     }
                                 }
-                            }
 
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("Ordenes", "Index", "Orden")</li>
-                    <li class="nav-item dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                            Mantenimientos Citas
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Listado de citas", "Index", "Citas", null, new { @class = "dropdown-item" })</li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        @{
-                            if (Session["User"] != null)
-                            {
-                                oUser = (Infrastructure.Models.Usuario)Session["User"];
-                                if (oUser != null && oUser.idRol == 1)
-                                {
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
-                                        Mantenimientos Usuarios
-                                        <span class="caret"></span>
-                                    </a>
-                                    <ul class="dropdown-menu">
-                                        <li>@Html.ActionLink("Listado de usuarios", "Index", "Usuario", null, new { @class = "dropdown-item" })</li>
-                                    </ul>
-                                }
-                            }
+                            </ul>
+                        </li>
+                        <li>@Html.ActionLink("Ordenes", "Index", "Orden")</li>
+                        @*Orden*@
+                        <li class="dropdown">
+                            @*Citas*@
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                Mantenimientos Citas
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Listado de citas", "Index", "Citas", null, new { @class = "dropdown-item" })</li>
+                            </ul>
+                        </li>
+                        oUser = (Infrastructure.Models.Usuario)Session["User"];
+                        if (oUser != null && oUser.idRol == 1)
+                        {
+                            <li class="dropdown">
+                                @*Usuarios*@
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                                    Mantenimientos Usuarios
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Listado de usuarios", "Index", "Usuario", null, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
                         }
-                    </li>
-                }
+                    }
+                    else
+                    {
 
-            </ul>
-            @Html.Partial("_PartialCarrito")
-            <ul class="nav navbar-nav navbar-right">
+                        <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Productos", "IndexCatalogo", "Carrito")</li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @Html.Partial("_PartialCarrito")
+                    @if (Session["User"] != null)
+                    {
+                        <li>
+                            <a href="@Url.Action("Desloguear", "Usuario")" title="Cerrar sesión" class="links">
+                                <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
+                                Cerrar sesión
+                            </a>
+                        </li>
+                    }
 
-                @if (Session["User"] != null)
-                {
-                    <li>
-                        <a href="@Url.Action("Desloguear", "Usuario")" title="Cerrar sesión" class="links">
-                            <img alt="List View" src="@Url.Content("/Img/icons/exit.png")" style="height:30px">
-                            Cerrar sesión
-                        </a>
-                    </li>
-                }
+                </ul>
+            </div>
 
-            </ul>
         </div>
     </div>
 

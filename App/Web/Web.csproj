@@ -244,6 +244,7 @@
     <Content Include="Img\Icons\calendar.png" />
     <Content Include="Img\Icons\car.png" />
     <Content Include="Img\Icons\clipboard.png" />
+    <Content Include="Img\Icons\costa-rica.png" />
     <Content Include="Img\Icons\danger.png" />
     <Content Include="Img\Icons\email.png" />
     <Content Include="Img\Icons\exit.png" />
@@ -251,7 +252,10 @@
     <Content Include="Img\Icons\mail.png" />
     <Content Include="Img\Icons\map.png" />
     <Content Include="Img\Icons\mechanic.png" />
+    <Content Include="Img\Icons\phone-call.png" />
     <Content Include="Img\Icons\settings.png" />
+    <Content Include="Img\Icons\shopping-cart %281%29.png" />
+    <Content Include="Img\Icons\shopping-cart.png" />
     <Content Include="Img\Icons\spray-gun.png" />
     <Content Include="Img\Icons\tel.png" />
     <Content Include="Img\Icons\user.png" />

@@ -1,5 +1,5 @@
-﻿<ul class="nav navbar-nav navbar-right">
-
-    <li>@Html.ActionLink("Carrito", "Index", "Carrito", new { id = "cartItem"})</li>
-
-</ul>
+﻿
+    @*<li>@Html.ActionLink("Carrito", "Index", "Carrito", new { id = "cartItem"})</li>*@
+    <li>
+        <a href="@Url.Action("Index", "Carrito",new { id = "cartItem"})"><img src="~/Img/icons/shopping-cart.png" alt="Carrito" style="height:30px; width:auto" /></a>
+    </li>

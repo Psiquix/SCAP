@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
+using Web.Security;
 using Web.Utils;
 using Web.ViewModel;
 
@@ -18,6 +19,7 @@ namespace Web.Controllers
         public double localImpuesto = 0.13;
 
         // GET: Orden
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
             IEnumerable<Orden> lista = null;
@@ -39,7 +41,7 @@ namespace Web.Controllers
             return View();
         }
 
-
+        [CustomAuthorize((int)Roles.Emp)]
         public ActionResult Completar(int? id)
         {
             Orden oOrden = _ServiceOrden.GetOrdenById(id.Value);
@@ -48,7 +50,7 @@ namespace Web.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [CustomAuthorize((int)Roles.Admin)]
         public ActionResult Edit(int? id)
         {
             Orden oOrden = null;
