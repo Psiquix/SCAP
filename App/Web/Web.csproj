@@ -212,6 +212,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MarcaController.cs" />
     <Compile Include="Controllers\DetalleOrdenController.cs" />
+    <Compile Include="Controllers\OrdenController.cs" />
     <Compile Include="Controllers\ProductoController.cs" />
     <Compile Include="Controllers\SweetController.cs" />
     <Compile Include="Controllers\TipoProductoController.cs" />
@@ -326,7 +327,6 @@
     <Content Include="Views\Marca\ListAll.cshtml" />
     <Content Include="Views\Marca\EditAll.cshtml" />
     <Content Include="Views\Producto\Create.cshtml" />
-    <Content Include="Views\Orden\Index.cshtml" />
     <Content Include="Views\DetalleOrden\Details.cshtml" />
     <Content Include="Views\DetalleOrden\Index.cshtml" />
     <Content Include="Views\DetalleOrden\Detalle.cshtml" />
@@ -335,6 +335,9 @@
     <Content Include="Views\Carrito\Index.cshtml" />
     <Content Include="Views\Shared\_PartialCarrito.cshtml" />
     <Content Include="Views\Carrito\IndexCatalogo.cshtml" />
+    <Content Include="Views\Orden\Create.cshtml" />
+    <Content Include="Views\Orden\Index.cshtml" />
+    <Content Include="Views\Orden\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

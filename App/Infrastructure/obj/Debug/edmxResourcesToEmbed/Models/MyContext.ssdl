@@ -28,7 +28,7 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idTipoProducto" Type="int" />
-    <Property Name="descripcion" Type="nvarchar" MaxLength="15" />
+    <Property Name="descripcion" Type="nvarchar" MaxLength="50" />
     <Property Name="estado" Type="bit" />
   </EntityType>
   <EntityType Name="Orden">
@@ -36,11 +36,15 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="idUsuario" Type="int" />
     <Property Name="impuesto" Type="float" />
     <Property Name="total" Type="float" />
     <Property Name="fecha" Type="date" />
     <Property Name="estado" Type="bit" />
+    <Property Name="nombreCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="ApellidoCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="DescripcionCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="numeroCliente" Type="nvarchar" MaxLength="50" />
+    <Property Name="correoCliente" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Producto">
     <Key>
@@ -95,7 +99,7 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="descripcionTipo" Type="nvarchar" MaxLength="20" />
+    <Property Name="descripcionTipo" Type="nvarchar" MaxLength="50" />
     <Property Name="estado" Type="bit" />
   </EntityType>
   <EntityType Name="Usuario">
@@ -111,7 +115,7 @@
     <Property Name="idRol" Type="int" />
     <Property Name="estado" Type="bit" />
   </EntityType>
-  <Association Name="FK__Cita__idTipoCita__52593CB8">
+  <Association Name="FK__Cita__idTipoCita__5165187F">
     <End Role="TipoCita" Type="Self.TipoCita" Multiplicity="0..1" />
     <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
     <ReferentialConstraint>
@@ -135,7 +139,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleOr__idOrd__4D94879B">
+  <Association Name="FK__DetalleOr__idOrd__4CA06362">
     <End Role="Orden" Type="Self.Orden" Multiplicity="1" />
     <End Role="DetalleOrden" Type="Self.DetalleOrden" Multiplicity="*" />
     <ReferentialConstraint>
@@ -147,7 +151,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__DetalleOr__idPro__4E88ABD4">
+  <Association Name="FK__DetalleOr__idPro__4D94879B">
     <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
     <End Role="DetalleOrden" Type="Self.DetalleOrden" Multiplicity="*" />
     <ReferentialConstraint>
@@ -159,19 +163,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Orden__idUsuario__4CA06362">
-    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
-    <End Role="Orden" Type="Self.Orden" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Usuario">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="Orden">
-        <PropertyRef Name="idUsuario" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__Producto__idMarc__5070F446">
+  <Association Name="FK__Producto__idMarc__4F7CD00D">
     <End Role="Marca" Type="Self.Marca" Multiplicity="0..1" />
     <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
     <ReferentialConstraint>
@@ -183,7 +175,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Producto__idTipo__4F7CD00D">
+  <Association Name="FK__Producto__idTipo__4E88ABD4">
     <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="0..1" />
     <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
     <ReferentialConstraint>
@@ -195,7 +187,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__Producto__idTipo__5165187F">
+  <Association Name="FK__Producto__idTipo__5070F446">
     <End Role="TipoUnidad" Type="Self.TipoUnidad" Multiplicity="0..1" />
     <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
     <ReferentialConstraint>
@@ -243,7 +235,7 @@
     <EntitySet Name="TipoProducto" EntityType="Self.TipoProducto" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="TipoUnidad" EntityType="Self.TipoUnidad" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__Cita__idTipoCita__52593CB8" Association="Self.FK__Cita__idTipoCita__52593CB8">
+    <AssociationSet Name="FK__Cita__idTipoCita__5165187F" Association="Self.FK__Cita__idTipoCita__5165187F">
       <End Role="TipoCita" EntitySet="TipoCita" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
@@ -251,27 +243,23 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Cita" EntitySet="Cita" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleOr__idOrd__4D94879B" Association="Self.FK__DetalleOr__idOrd__4D94879B">
+    <AssociationSet Name="FK__DetalleOr__idOrd__4CA06362" Association="Self.FK__DetalleOr__idOrd__4CA06362">
       <End Role="Orden" EntitySet="Orden" />
       <End Role="DetalleOrden" EntitySet="DetalleOrden" />
     </AssociationSet>
-    <AssociationSet Name="FK__DetalleOr__idPro__4E88ABD4" Association="Self.FK__DetalleOr__idPro__4E88ABD4">
+    <AssociationSet Name="FK__DetalleOr__idPro__4D94879B" Association="Self.FK__DetalleOr__idPro__4D94879B">
       <End Role="Producto" EntitySet="Producto" />
       <End Role="DetalleOrden" EntitySet="DetalleOrden" />
     </AssociationSet>
-    <AssociationSet Name="FK__Orden__idUsuario__4CA06362" Association="Self.FK__Orden__idUsuario__4CA06362">
-      <End Role="Usuario" EntitySet="Usuario" />
-      <End Role="Orden" EntitySet="Orden" />
-    </AssociationSet>
-    <AssociationSet Name="FK__Producto__idMarc__5070F446" Association="Self.FK__Producto__idMarc__5070F446">
+    <AssociationSet Name="FK__Producto__idMarc__4F7CD00D" Association="Self.FK__Producto__idMarc__4F7CD00D">
       <End Role="Marca" EntitySet="Marca" />
       <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Producto__idTipo__4F7CD00D" Association="Self.FK__Producto__idTipo__4F7CD00D">
+    <AssociationSet Name="FK__Producto__idTipo__4E88ABD4" Association="Self.FK__Producto__idTipo__4E88ABD4">
       <End Role="TipoProducto" EntitySet="TipoProducto" />
       <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>
-    <AssociationSet Name="FK__Producto__idTipo__5165187F" Association="Self.FK__Producto__idTipo__5165187F">
+    <AssociationSet Name="FK__Producto__idTipo__5070F446" Association="Self.FK__Producto__idTipo__5070F446">
       <End Role="TipoUnidad" EntitySet="TipoUnidad" />
       <End Role="Producto" EntitySet="Producto" />
     </AssociationSet>

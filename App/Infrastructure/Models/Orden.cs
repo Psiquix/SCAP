@@ -21,14 +21,17 @@ namespace Infrastructure.Models
         }
     
         public int id { get; set; }
-        public Nullable<int> idUsuario { get; set; }
         public Nullable<double> impuesto { get; set; }
         public Nullable<double> total { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
         public bool estado { get; set; }
+        public string nombreCliente { get; set; }
+        public string ApellidoCliente { get; set; }
+        public string DescripcionCliente { get; set; }
+        public string numeroCliente { get; set; }
+        public string correoCliente { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleOrden> DetalleOrdens { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }

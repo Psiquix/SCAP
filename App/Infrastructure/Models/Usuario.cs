@@ -18,7 +18,6 @@ namespace Infrastructure.Models
         public Usuario()
         {
             this.Citas = new HashSet<Cita>();
-            this.Ordens = new HashSet<Orden>();
         }
     
         public int id { get; set; }
@@ -32,8 +31,6 @@ namespace Infrastructure.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cita> Citas { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orden> Ordens { get; set; }
         public virtual Rol Rol { get; set; }
         public virtual TelefonoUsuario TelefonoUsuario { get; set; }
     }

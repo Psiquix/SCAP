@@ -1,1 +1,89 @@
-﻿
+﻿@model IEnumerable<Infrastructure.Models.Orden>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApellidoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correoCliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total)
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fecha)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.nombreCliente)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.ApellidoCliente)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.numeroCliente)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.correoCliente)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.estado)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.total)
+    </td>
+    <td>
+        @if (Session["User"] != null)
+        {
+            Infrastructure.Models.Usuario oUser;
+            oUser = (Infrastructure.Models.Usuario)Session["User"];
+            if (oUser != null && oUser.idRol == 1)
+            {
+                @Html.ActionLink("Editar Orden", "Edit", new { id = item.id })
+            }
+        }
+        @if (item.estado == true)
+        {
+            @Html.ActionLink("Completar", "Completar", new { id = item.id })
+        }
+        else
+        {
+            <p>
+                Completado
+            </p>
+        }
+    </td>
+</tr>
+}
+
+</table>

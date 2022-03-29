@@ -108,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\IRepDetalle.cs" />
     <Compile Include="Repository\IRepMarca.cs" />
+    <Compile Include="Repository\IRepOrden.cs" />
     <Compile Include="Repository\IRepProducto.cs" />
     <Compile Include="Repository\IRepRol.cs" />
     <Compile Include="Repository\IRepTipoProd.cs" />
@@ -115,6 +116,7 @@
     <Compile Include="Repository\IRepUsuario.cs" />
     <Compile Include="Repository\RepDetalle.cs" />
     <Compile Include="Repository\RepMarca.cs" />
+    <Compile Include="Repository\RepOrden.cs" />
     <Compile Include="Repository\RepProducto.cs" />
     <Compile Include="Repository\RepRol.cs" />
     <Compile Include="Repository\RepTipoProd.cs" />

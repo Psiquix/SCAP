@@ -1,52 +1,77 @@
 ﻿@model IEnumerable<Web.ViewModel.ViewModelDetalle>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Carrito";
 }
 
-<h2>Index</h2>
-<table class="table table-hover">
-    <thead>
-        <tr class="table-active">
-            <th>
-                @Html.DisplayNameFor(model => model.Producto.nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.subtotal)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th>
-                    @Html.DisplayFor(modelItem => item.Producto.nombre)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.cantidad)
-                </th>
-                <th>
-                    @Html.DisplayFor(modelItem => item.subtotal)
-                </th>
-            </tr>
-        }
-    </tbody>
 
-</table>
-@{
-    double subtotalSumado = 0;
+<div class="jumbotron">
+    <h2 class="text-center">Objetos en el carrito</h2>
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr class="table-active">
+                        <th>
+                            @Html.DisplayNameFor(model => model.Producto.nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.cantidad)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.subtotal)
+                        </th>
+                        <th>
+                            Acciones
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr class="table-secondary">
+                            <th>
+                                @Html.DisplayFor(modelItem => item.Producto.nombre)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.cantidad)
+                            </th>
+                            <th>
+                                @Html.DisplayFor(modelItem => item.subtotal)
+                            </th>
+                            <th>
+                                <button class="btn btn-primary">Más</button>
+                                <button class="btn btn-primary">-</button>
+                            </th>
+                        </tr>
+                    }
+                </tbody>
 
-    foreach (var item in Model)
-    {
-        subtotalSumado += item.subtotal;
-    }
-    <p>
-        Total:
-        @subtotalSumado
-    </p>
-}
+            </table>
+            @{
+                double subtotalSumado = 0;
 
-    Botones
+                foreach (var item in Model)
+                {
+                    subtotalSumado += item.subtotal;
+                }
+                <p>
+                    Total:
+                    @subtotalSumado
+                </p>
+            }
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
+                @Html.ActionLink("Completar orden", "Create", "Orden")
+            </button>
+            <button>Cancelar Orden</button>
+        </div>
+
+            
+
+    </div>
+</div>
+
