@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Web.ViewModel.ViewModelDetalle>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-active">
+            <th>
+                @Html.DisplayNameFor(model => model.Producto.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.subtotal)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th>
+                    @Html.DisplayFor(modelItem => item.Producto.nombre)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.cantidad)
+                </th>
+                <th>
+                    @Html.DisplayFor(modelItem => item.subtotal)
+                </th>
+            </tr>
+        }
+    </tbody>
+
+</table>
+@{
+    double subtotalSumado = 0;
+
+    foreach (var item in Model)
+    {
+        subtotalSumado += item.subtotal;
+    }
+    <p>
+        Total:
+        @subtotalSumado
+    </p>
+}
+
+    Botones

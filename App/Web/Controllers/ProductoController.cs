@@ -14,10 +14,11 @@ namespace SCAP.Controllers
 {
     public class ProductoController : Controller
     {
-        // Listado productos
+        
         IServiceProducto _ServiceProducto = new ServiceProducto();
 
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        // Listado productos
         public ActionResult Index()
         {
             IEnumerable<Producto> lista = null;
@@ -33,7 +34,6 @@ namespace SCAP.Controllers
             return View(lista);
         }
 
-        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult IndexCatalogo()
         {
             IEnumerable<Producto> lista = null;
@@ -49,41 +49,41 @@ namespace SCAP.Controllers
             return View(lista);
         }
 
-        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
-        public ActionResult Details(int? id)
-        {
-            Producto oProducto = null;
-            try
-            {
-                // Si va null
-                if (id == null)
-                {
-                    return RedirectToAction("Index");
-                }
-                oProducto = _ServiceProducto.GetProductoByID(id.Value);
-                if (oProducto == null)
-                {
-                    TempData["Message"] = "No existe el producto solicitado";
-                    TempData["Redirect"] = "Producto";
-                    TempData["Redirect-Action"] = "Index";
-                    // Redireccion a la captura del Error
-                    return RedirectToAction("Default", "Error");
-                }
-                return View(oProducto);
-            }
-            catch (Exception ex)
-            {
-                // Salvar el error en un archivo 
-                Log.Error(ex, MethodBase.GetCurrentMethod());
-                TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-                TempData["Redirect"] = "Producto";
-                TempData["Redirect-Action"] = "Index";
-                // Redireccion a la captura del Error
-                return RedirectToAction("Default", "Error");
-            }
-        }
+        //[CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+        //public ActionResult Details(int? id)
+        //{
+        //    Producto oProducto = null;
+        //    try
+        //    {
+        //        // Si va null
+        //        if (id == null)
+        //        {
+        //            return RedirectToAction("Index");
+        //        }
+        //        oProducto = _ServiceProducto.GetProductoByID(id.Value);
+        //        if (oProducto == null)
+        //        {
+        //            TempData["Message"] = "No existe el producto solicitado";
+        //            TempData["Redirect"] = "Producto";
+        //            TempData["Redirect-Action"] = "Index";
+        //            // Redireccion a la captura del Error
+        //            return RedirectToAction("Default", "Error");
+        //        }
+        //        return View(oProducto);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Salvar el error en un archivo 
+        //        Log.Error(ex, MethodBase.GetCurrentMethod());
+        //        TempData["Message"] = "Error al procesar los datos! " + ex.Message;
+        //        TempData["Redirect"] = "Producto";
+        //        TempData["Redirect-Action"] = "Index";
+        //        // Redireccion a la captura del Error
+        //        return RedirectToAction("Default", "Error");
+        //    }
+        //}
 
-        // GET: Producto/Create
+
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Create()
         {
@@ -93,7 +93,7 @@ namespace SCAP.Controllers
             return View();
         }
 
-        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
+            [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         private SelectList ListaMarca()
         {
             IServiceMarca rep = new ServiceMarca();
@@ -153,6 +153,9 @@ namespace SCAP.Controllers
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Edit(int? id)
         {
+            ViewBag.idMarca = ListaMarca();
+            ViewBag.idTipoProd = ListaTipoProd();
+            ViewBag.idTipoUnidad = ListaTipoUnidad();
             Producto oProducto = null;
             try
             {
@@ -185,6 +188,7 @@ namespace SCAP.Controllers
                 return RedirectToAction("Default", "Error");
             }
         }
+
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Delete(int id)
         {

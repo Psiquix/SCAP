@@ -11,9 +11,7 @@ namespace Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
-    [MetadataType(typeof(CitaMetadata))]
+    
     public partial class Cita
     {
         public int id { get; set; }

@@ -28,7 +28,7 @@
                     @Html.LabelFor(model => model.idTipoProducto, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @*@Html.EditorFor(model => model.idTipoProducto, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.idTipoProducto, "", new { @class = "text-danger" })*@
+                            @Html.ValidationMessageFor(model => model.idTipoProducto, "", new { @class = "text-danger" })*@
                         @Html.DropDownList("idTipoProducto",
                         (SelectList)ViewBag.idTipoProd,
                         "Seleccione el tipo de producto",

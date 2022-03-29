@@ -89,9 +89,6 @@ E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.pdb
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll.config
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.pdb
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\EntityFramework.xml
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\log4net.xml
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.AssemblyReference.cache
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CoreCompileInputs.cache
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete

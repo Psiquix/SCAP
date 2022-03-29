@@ -10,6 +10,12 @@ namespace AppCore.Services
 {
     public class ServiceProducto : IServiceProducto
     {
+        public void actualizarCantidad(long id, int cantidad, long tipoMovimiento)
+        {
+            IRepProducto rep = new RepProducto();
+            rep.actualizarCantidad(id,cantidad,tipoMovimiento);
+        }
+
         public IEnumerable<Producto> GetProducto()
         {
             IRepProducto rep = new RepProducto();
@@ -18,7 +24,8 @@ namespace AppCore.Services
 
         public Producto GetProductoByID(long id)
         {
-            throw new NotImplementedException();
+            IRepProducto rep = new RepProducto();
+            return rep.GetProductoByID(id);
         }
 
         public IEnumerable<Producto> GetProductoByNombre(string nombre)

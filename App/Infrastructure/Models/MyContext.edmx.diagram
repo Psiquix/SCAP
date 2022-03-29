@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="5c4079021bf2485c8dbc7e5b82344e1b" Name="Diagram1">
         <EntityTypeShape EntityType="TallerGorroBDModel.Cita" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="TallerGorroBDModel.DetalleOrden" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="TallerGorroBDModel.DetalleOrden" Width="1.5" PointX="10" PointY="9.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerGorroBDModel.Marca" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerGorroBDModel.Orden" Width="1.5" PointX="5.25" PointY="7.875" IsExpanded="true" />
         <EntityTypeShape EntityType="TallerGorroBDModel.Producto" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />

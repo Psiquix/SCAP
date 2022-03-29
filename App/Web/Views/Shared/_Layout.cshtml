@@ -25,10 +25,11 @@
                 <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                 <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
                 <li>@Html.ActionLink("Sobre nosotros", "About", "Home")</li>
+                <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Carrito")</li>
 
                 @if (Session["User"] != null)
                 {
-                    <li>@Html.ActionLink("Catálogo", "IndexCatalogo", "Producto")</li>
+
                     <li class="nav-item dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button">
                             Mantenimientos Productos
@@ -94,7 +95,9 @@
                         }
                     </li>
                 }
+
             </ul>
+            @Html.Partial("_PartialCarrito")
             <ul class="nav navbar-nav navbar-right">
 
                 @if (Session["User"] != null)

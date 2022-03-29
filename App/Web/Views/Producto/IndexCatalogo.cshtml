@@ -21,20 +21,20 @@
                             @*<h6 class="card-subtitle mb-2 text-muted"> @Html.DisplayNameFor(model => model.TipoProducto): @Html.DisplayFor(modelItem => item.TipoProducto.descripcionTipo)</h6>*@
                             <p class="card-text">   @Html.DisplayNameFor(model => model.precioUnitario): @Html.DisplayFor(modelItem => item.precioUnitario)</p>
                             @*@Ajax.ActionLink("Ordenar",//Texto para el usuario
-                                "ordenarProducto",//Acción a llamar
-                                "Pedido",
-                                new
-                                {
-                                    pIdProducto = item.Id
-                                },//Parámetros a enviar
-                                new AjaxOptions
-                                {
-                                    UpdateTargetId = "cantidadProductos",
-                                    InsertionMode = InsertionMode.Replace,
-                                    HttpMethod = "GET",
-                                }, new { @class = "btn btn-warning" }
-                                )*@
-                            <a href="#" class="btn btn-warning">Ordenar</a>
+        "ordenarProducto",//Acción a llamar
+        "Pedido",
+        new
+        {
+            pIdProducto = item.Id
+        },//Parámetros a enviar
+        new AjaxOptions
+        {
+            UpdateTargetId = "cantidadProductos",
+            InsertionMode = InsertionMode.Replace,
+            HttpMethod = "GET",
+        }, new { @class = "btn btn-warning" }
+        )*@
+                            @Html.ActionLink("Agregar a orden", "Save", "Carrito", new { id = item.id})
                         </div>
                     </div>
                 </div>

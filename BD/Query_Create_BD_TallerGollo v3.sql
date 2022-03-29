@@ -46,11 +46,16 @@ estado bit
 
 create table Orden(
 id int identity(1,1) primary key,
-idUsuario int,
 impuesto float,
 total float,
 fecha date,
-estado bit
+estado bit,
+nombreCliente nvarchar(50),
+ApellidoCliente nvarchar(50),
+DescripcionCliente nvarchar(50),
+numeroCliente nvarchar(50),
+correoCliente nvarchar(50) not null,
+
 );
 
 create table DetalleOrden(
@@ -100,7 +105,7 @@ alter table Cita add foreign key (idUsuario) references Usuario(id);
 alter table Usuario add foreign key (idTelf) references TelefonoUsuario(id);
 alter table Usuario add foreign key (idRol) references Rol(id);
 
-alter table Orden add foreign key (idUsuario) references Usuario(id);
+
 alter table DetalleOrden add foreign key (idOrden) references Orden(id);
 alter table DetalleOrden add foreign key (idProd) references Producto(id);
 alter table Producto add foreign key (idTipoProducto) references TipoProducto(id);

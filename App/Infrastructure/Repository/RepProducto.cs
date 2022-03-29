@@ -16,6 +16,39 @@ namespace Infrastructure.Repository
         IRepTipoUnidad rTipoUnidad = new RepTipoUnidad();
         IRepMarca rMarca = new RepMarca();
 
+        public void actualizarCantidad(long id, int cantidad, long tipoMovimiento)
+        {
+            using (MyContext cdt = new MyContext())
+            {
+                try
+                {
+                    Producto oldProd = GetProductoByID(id);
+
+                    if (tipoMovimiento == 1)
+                    {
+                        oldProd.cantidadNum += cantidad;
+
+                    }
+                    else
+                    {
+                        oldProd.cantidadNum -= cantidad;
+
+                    }
+
+                    cdt.Productoes.Add(oldProd);
+                    cdt.Entry(oldProd).State = EntityState.Modified;
+                    cdt.SaveChanges();
+                }
+                catch (Exception ex)
+                {
+                    string mensaje = "";
+                    Log.Error(ex, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                    throw;
+
+                }
+            }
+        }
+
         public IEnumerable<Producto> GetProducto()
         {
             IEnumerable<Producto> lista = null;
@@ -47,65 +80,29 @@ namespace Infrastructure.Repository
 
         public void Save(Producto prod)
         {
-            Producto prodExist = GetProductoByID(prod.id);
-
-
-            Marca mar;
-            TipoProducto tipoP;
-            TipoUnidad tipoU;
-
-            using (MyContext cxt = new MyContext())
+            int salida = 0;
+            Producto oProd = null;
+            try
             {
-                cxt.Configuration.LazyLoadingEnabled = false;
-
-                try
+                using (MyContext ctx = new MyContext())
                 {
-                    if (prodExist == null)
+                        ctx.Configuration.LazyLoadingEnabled = false;
+                        oProd = GetProductoByID(prod.id);
+                        if (oProd == null)
+                        {
+                            prod.estado = true;
+                            ctx.Productoes.Add(prod);
+                        }
+                        else
+                        {
+                            ctx.Entry(prod).State = EntityState.Modified;
+                            //Si existiera, actualiza los datos
+                        }
+                        salida = ctx.SaveChanges();
+                }
+                    if (salida >= 0)
                     {
-                        //si producto no existe
-                        prod.estado = true;
-
-                        //salva el producto
-                        cxt.Productoes.Add(prod);
-
-                        cxt.SaveChanges();
-                    }
-                    else
-                    {
-                        //cxt.Productoes.Add(prod);
-                        //cxt.Entry(prod).State = EntityState.Modified;
-
-
-                        ////actualiza los proveedores a la tabla intermedia
-                        //var proveedoresLista = new HashSet<string>(proveedor);
-                        //cxt.Entry(prod).Collection(p => p.Proveedor).Load();
-                        //var nuevoProveedorLista = cxt.Proveedor.Where(x => proveedoresLista.Contains(x.id.ToString())).ToList();
-                        //prod.Proveedor = nuevoProveedorLista;
-                        //cxt.Entry(prod).State = EntityState.Modified;
-
-                        ////actualiza la tabla intermedia de ubicacion
-
-                        //if (sucursal != null)
-                        //{
-                        //    //Obtener los estantes registrados del producto a modificar
-                        //    List<Sucursal_Producto> sucursalesdelProducto = cxt.Sucursal_Producto.Where(x => x.idProducto == prod.id).ToList();
-                        //    // Borrar los estantes existentes del producto
-                        //    foreach (var item in sucursalesdelProducto)
-                        //    {
-                        //        prod.Sucursal_Producto.Remove(item);
-                        //    }
-                        //    //Registrar los estantes especificados
-                        //    foreach (var suc in sucursal)
-                        //    {
-                        //        Sucursal_Producto su = new Sucursal_Producto();
-                        //        su.idProducto = prod.id;
-                        //        su.idSucursal = long.Parse(suc);
-                        //        su.cantidad = prod.cantidadExistente;
-                        //        cxt.Sucursal_Producto.Add(su);
-                        //    }
-
-                        //    cxt.SaveChanges();
-                        //}
+                oProd = GetProductoByID(prod.id);
                     }
                 }
                 catch (Exception e)
@@ -114,7 +111,7 @@ namespace Infrastructure.Repository
                     Log.Error(e, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
                     throw;
                 }
-            }
+            
 
         }
     }

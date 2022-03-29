@@ -1,0 +1,162 @@
+﻿@model Infrastructure.Models.Orden
+
+@{
+    ViewBag.Title = "IndexOrden";
+}
+
+<h2>IndexOrden</h2>
+
+@using (Html.BeginForm("Save", "DetalleOrden", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="col-lg-6">
+        <div class="form-group3">
+            <br />
+            @Html.LabelFor(model => model.fecha, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.fecha, htmlAttributes: new { @class = "form-control", @Value = DateTime.Now.ToString("yyyy-MM-dd"), @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.fecha, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.impuesto, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.impuesto, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.impuesto, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.total, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.total, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div id="resultadoDetalle">
+            @if (Web.ViewModel.Carrito.Instancia.Items.Count() > 0)
+            {
+                @Html.Partial("~/Views/DetalleOrden/Detalle.cshtml", (List<Web.ViewModel.ViewModelDetalle>)ViewBag.DetalleOrden)
+            }
+            else
+            {
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    El movimiento no tiene Productos asignados
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            }
+
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryajax")
+
+    <script type="text/javascript">
+
+        //Actualizar cantidad de libros en el carrito
+        //Cambio de cantidad en caja de texto
+        function updateCantidad(ctr) {
+            var txtCantidad = $(ctr);
+            var cantidad = txtCantidad.val();
+            var id = txtCantidad.data("productoid");
+            $.ajax({
+                type: "GET",
+                dataType: 'text',
+                url: "/DetalleOrden/actualizarCantidad",
+                data: { "idProducto": id, "cantidad": cantidad },
+                success: function (data) {
+                    $("#resultadoDetalle").html('');
+                    $("#resultadoDetalle").html(data);
+                    updateCantLibros();
+                }, error: function (xhr, status, error) {
+                    console.log("Error: " + error + ", No Error: " + xhr.status);
+                },
+            });
+        }
+        //Actualizar cantidad de libros en el menú
+        function updateCantLibros() {
+            $.ajax({
+                type: "GET",
+                dataType: 'text',
+                url: "/Encabezado_Inventario/actualizarOrdenCantidad",
+                success: function (data) {
+                    $("#cantidadLibros").html('');
+                    $("#cantidadLibros").html(data);
+                }, error: function (xhr, status, error) {
+                    console.log("Error: " + error + ", No Error: " + xhr.status);
+                },
+            });
+        }
+
+        function updateEntrada() {
+            $.ajax({
+                type: "GET",
+                dataType: 'text',
+                url: "/Encabezado_Inventario/appearEntrada",
+                success: function (data) {
+                    $("#searchResults").html('');
+                    $("#searchResults").html(data);
+                }, error: function (xhr, status, error) {
+                    console.log("Error: " + error + ", No Error: " + xhr.status);
+                },
+            });
+        }
+
+    </script>
+    <script type="text/javascript">
+
+        function aparecerProveedor() {
+            var seleccionado = $('#movimiento').val();
+            $("#searchResults").text(seleccionado)
+        }
+
+        $(document).ready(function () {
+            $("#movimiento").change(function () {
+                var seleccionado = $("#movimiento Option:Selected").text();
+                if (seleccionado == "entrada") {
+                    $ajax({
+                        type: "GET",
+                        dataType: 'text',
+                        url: "/Encabezado_Inventario/appearEntrada",
+                        success: function (data) {
+                            $("#searchResults").html('');
+                            $("#searchResults").html(data);
+                        }, error: function (xhr, status, error) {
+                            console.log("Error: " + error + ", No Error: " + xhr.status);
+                        },
+                    });
+                } else {
+                    $.ajax({
+                        type: "GET",
+                        dataType: 'text',
+                        url: "/Encabezado_Inventario/AppearSalida",
+                        success: function (data) {
+                            $("#searchResults").html('');
+                            $("#searchResults").html(data);
+                        }, error: function (xhr, status, error) {
+                            console.log("Error: " + error + ", No Error: " + xhr.status);
+                        }
+                    });
+                }
+
+            }
+                                        })
+    </script>
+}

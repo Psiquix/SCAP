@@ -13,5 +13,7 @@ namespace AppCore.Services
         Producto GetProductoByID(long id);
         void Save(Producto prod);
         IEnumerable<Producto> GetProductoByNombre(String nombre);
+        void actualizarCantidad(long id, int cantidad, long tipoMovimiento);
+
     }
 }
