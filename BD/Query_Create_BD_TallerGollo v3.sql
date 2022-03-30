@@ -138,8 +138,8 @@ Insert into TipoCita values('Pintura', 1);
 insert into TelefonoUsuario values ('88888888',1);
 insert into TelefonoUsuario values ('83359253',1);
 
-insert into Rol values ('Administrador',1);
-insert into Rol values ('Empleado',1);
+insert into Rol values ('Admin',1);
+insert into Rol values ('Emp',1);
 
 insert into Usuario values (1,'admin',' ','root@root','123',1,1,1);
 insert into Usuario values (2,'emp',' ','emp@root','123',1,2,1);
