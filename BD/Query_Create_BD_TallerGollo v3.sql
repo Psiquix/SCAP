@@ -7,11 +7,15 @@ use TallerGorroBD;
 ----
 create table Cita(
 id int identity(1,1) primary key,
-idUsuario int,
+--idUsuario int,
+idTipoCita int,
+nombreCliente nvarchar(50),
+apellidosCliente nvarchar(50),
+telefonoCliente nvarchar(50),
+correoCliente nvarchar(50),
 fechaCita date,
 horaCita datetime,
 descripcion nvarchar(40),
-idTipoCita int,
 estado bit
 );
 create table TipoCita(
@@ -76,9 +80,9 @@ idTipoProducto int,
 idMarca int,
 precioUnitario float,
 cantidadNum int null,
-cantMinNum int,
+cantMinNum int null,
 cantidadPeso float null,
-cantMinPeso int,
+--cantMinPeso float null,
 imagen Varbinary(max),
 estado bit
 );
@@ -103,7 +107,7 @@ estado bit
 );
 
 
-alter table Cita add foreign key (idUsuario) references Usuario(id);
+--alter table Cita add foreign key (idUsuario) references Usuario(id);
 alter table Usuario add foreign key (idTelf) references TelefonoUsuario(id);
 alter table Usuario add foreign key (idRol) references Rol(id);
 
@@ -132,12 +136,14 @@ Insert into TipoCita values('Mecánica rápida', 1);
 Insert into TipoCita values('Pintura', 1);
 
 insert into TelefonoUsuario values ('88888888',1);
+insert into TelefonoUsuario values ('83359253',1);
 
-insert into Rol values ('Admin',1);
-insert into Rol values ('Emp',1);
+insert into Rol values ('Administrador',1);
+insert into Rol values ('Empleado',1);
 
 insert into Usuario values (1,'admin',' ','root@root','123',1,1,1);
 insert into Usuario values (2,'emp',' ','emp@root','123',1,2,1);
+insert into Usuario values (3, 'Danilo', 'Cubero Quirós', 'tallergorro54@gmail.com', 'PswTaller54', 2 ,1, 1);
 
 select * from Rol
 select * from producto
