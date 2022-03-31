@@ -14,7 +14,7 @@ apellidosCliente nvarchar(50),
 telefonoCliente nvarchar(50),
 correoCliente nvarchar(50),
 fechaCita date,
-horaCita datetime,
+horaCita time(7),
 descripcion nvarchar(40),
 estado bit
 );
