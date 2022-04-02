@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TallerGorroBDModelStoreContainer" CdmEntityContainer="TallerGorroBDEntities">
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTipoCita" ColumnName="idTipoCita" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="apellidosCliente" ColumnName="apellidosCliente" />
+          <ScalarProperty Name="telefonoCliente" ColumnName="telefonoCliente" />
+          <ScalarProperty Name="correoCliente" ColumnName="correoCliente" />
+          <ScalarProperty Name="fechaCita" ColumnName="fechaCita" />
+          <ScalarProperty Name="horaCita" ColumnName="horaCita" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetalleOrdens">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.DetalleOrden">
+        <MappingFragment StoreEntitySet="DetalleOrden">
+          <ScalarProperty Name="idOrden" ColumnName="idOrden" />
+          <ScalarProperty Name="idProd" ColumnName="idProd" />
+          <ScalarProperty Name="subtotal" ColumnName="subtotal" />
+          <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Marcas">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Marca">
+        <MappingFragment StoreEntitySet="Marca">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ordens">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Orden">
+        <MappingFragment StoreEntitySet="Orden">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="impuesto" ColumnName="impuesto" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="ApellidoCliente" ColumnName="ApellidoCliente" />
+          <ScalarProperty Name="DescripcionCliente" ColumnName="DescripcionCliente" />
+          <ScalarProperty Name="numeroCliente" ColumnName="numeroCliente" />
+          <ScalarProperty Name="correoCliente" ColumnName="correoCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Productoes">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Producto">
+        <MappingFragment StoreEntitySet="Producto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="idTipoUnidad" ColumnName="idTipoUnidad" />
+          <ScalarProperty Name="idTipoProducto" ColumnName="idTipoProducto" />
+          <ScalarProperty Name="idMarca" ColumnName="idMarca" />
+          <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
+          <ScalarProperty Name="cantidadNum" ColumnName="cantidadNum" />
+          <ScalarProperty Name="cantMinNum" ColumnName="cantMinNum" />
+          <ScalarProperty Name="cantidadPeso" ColumnName="cantidadPeso" />
+          <ScalarProperty Name="imagen" ColumnName="imagen" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TelefonoUsuarios">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.TelefonoUsuario">
+        <MappingFragment StoreEntitySet="TelefonoUsuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numeroTelf" ColumnName="numeroTelf" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCitas">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.TipoCita">
+        <MappingFragment StoreEntitySet="TipoCita">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoProductoes">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.TipoProducto">
+        <MappingFragment StoreEntitySet="TipoProducto">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcionTipo" ColumnName="descripcionTipo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUnidads">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.TipoUnidad">
+        <MappingFragment StoreEntitySet="TipoUnidad">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="descripcionTipo" ColumnName="descripcionTipo" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="TallerGorroBDModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="idTelf" ColumnName="idTelf" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="estado" ColumnName="estado" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

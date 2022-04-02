@@ -114,7 +114,7 @@ namespace Web.Controllers
                     Util.ValidateErrors(this);
                     return View("Create", orden);
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("ConfirmacionOrden");
             }
             catch (Exception ex)
             {
@@ -126,6 +126,11 @@ namespace Web.Controllers
                 // Redireccion a la captura del Error
                 return RedirectToAction("Default", "Error");
             }
+        }
+
+        public ActionResult ConfirmacionOrden()
+        {
+            return View();
         }
     }
 }

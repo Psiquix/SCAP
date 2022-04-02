@@ -28,6 +28,7 @@ namespace Infrastructure.Models
         public Nullable<int> idMarca { get; set; }
         public Nullable<double> precioUnitario { get; set; }
         public Nullable<int> cantidadNum { get; set; }
+        public Nullable<int> cantMinNum { get; set; }
         public Nullable<double> cantidadPeso { get; set; }
         public byte[] imagen { get; set; }
         public Nullable<bool> estado { get; set; }

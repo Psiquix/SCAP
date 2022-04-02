@@ -15,14 +15,16 @@ namespace Infrastructure.Models
     public partial class Cita
     {
         public int id { get; set; }
-        public Nullable<int> idUsuario { get; set; }
-        public Nullable<System.DateTime> fechaCita { get; set; }
-        public Nullable<System.DateTime> horaCita { get; set; }
-        public string descripcion { get; set; }
         public Nullable<int> idTipoCita { get; set; }
+        public string nombreCliente { get; set; }
+        public string apellidosCliente { get; set; }
+        public string telefonoCliente { get; set; }
+        public string correoCliente { get; set; }
+        public Nullable<System.DateTime> fechaCita { get; set; }
+        public Nullable<System.TimeSpan> horaCita { get; set; }
+        public string descripcion { get; set; }
         public Nullable<bool> estado { get; set; }
     
         public virtual TipoCita TipoCita { get; set; }
-        public virtual Usuario Usuario { get; set; }
     }
 }

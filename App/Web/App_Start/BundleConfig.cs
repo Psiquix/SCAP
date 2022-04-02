@@ -25,6 +25,19 @@ namespace SCAP
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            // Jquery UI
+            bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
+                         "~/Scripts/jquery-ui-{version}.js"));
+
+            // Ajax unobtrusive
+            // JQUERY UNOBTRUSIVE PARA @Ajax.BeginForm() 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
+                        "~/Scripts/jquery.unobtrusive*"));
+
+            // Toast 
+            bundles.Add(new ScriptBundle("~/bundles/toastjs").Include(
+                "~/Scripts/toastr.js"));
         }
     }
 }

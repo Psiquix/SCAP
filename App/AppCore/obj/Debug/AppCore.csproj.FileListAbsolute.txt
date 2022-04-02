@@ -108,3 +108,15 @@ E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.cs
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.csproj.CopyComplete
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.dll
 E:\Documents\Practica Profesional\Proyecto\SCAP\App\AppCore\obj\Debug\AppCore.pdb
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\AppCore.dll
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\AppCore.pdb
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\Infrastructure.dll
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\log4net.dll
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\EntityFramework.dll
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\Infrastructure.pdb
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\bin\Debug\Infrastructure.dll.config
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\obj\Debug\AppCore.csproj.AssemblyReference.cache
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\obj\Debug\AppCore.csproj.CoreCompileInputs.cache
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\obj\Debug\AppCore.csproj.CopyComplete
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\obj\Debug\AppCore.dll
+C:\Users\FABIAN\Source\Repos\SCAP3\App\AppCore\obj\Debug\AppCore.pdb

@@ -24,7 +24,7 @@ namespace Infrastructure.Models
         public Nullable<double> impuesto { get; set; }
         public Nullable<double> total { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
-        public bool estado { get; set; }
+        public Nullable<bool> estado { get; set; }
         public string nombreCliente { get; set; }
         public string ApellidoCliente { get; set; }
         public string DescripcionCliente { get; set; }

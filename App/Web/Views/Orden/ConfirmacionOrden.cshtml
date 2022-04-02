@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Confirmacion Orden";
+}
+<center>
+    <div class="form-horizontal" style="margin-top:8%; margin-bottom: 8%" align="center">
+        <h2 style=" padding-top: 2%;">¡Apartado realizado con éxito!</h2>
+        <div class="form-group">
+            <div class="col-md-10" ali>
+                <img class="img img-responsive" src="@Url.Content("~/Img/check-green.gif")" width="200" height="200" />
+                <br />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <p>
+                    <b>
+                        ¡Gracias por preferirnos!
+                    </b>
+                </p>
+                <br />
+                <p>
+                    <a href="@Url.Action("Index", "Home")">Regresar a la página principal</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</center>
+

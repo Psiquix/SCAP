@@ -67,11 +67,13 @@ namespace Infrastructure.Repository
             {
                 using (MyContext ctx = new MyContext())
                 {
+                    //oOrden.DescripcionCliente = "D";
                     ctx.Configuration.LazyLoadingEnabled = false;
                     oOrden = GetOrdenById(orden.id);
                     if (oOrden == null)
                     {
                         orden.estado = true;
+                        //oOrden.DescripcionCliente = "";
                         ctx.Ordens.Add(orden);
                     }
                     else

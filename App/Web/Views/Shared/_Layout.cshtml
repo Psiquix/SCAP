@@ -72,7 +72,8 @@
                                 <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li>@Html.ActionLink("Listado de citas", "Index", "Citas", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Listado de citas", "List", "Cita", null, new { @class = "dropdown-item" })</li>
+                                <li>@Html.ActionLink("Reservar citas", "Index", "Cita", null, new { @class = "dropdown-item" })</li>
                             </ul>
                         </li>
                         oUser = (Infrastructure.Models.Usuario)Session["User"];
@@ -95,6 +96,7 @@
 
                         <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
                         <li>@Html.ActionLink("Productos", "IndexCatalogo", "Carrito")</li>
+                        <li>@Html.ActionLink("Citas", "Index", "Cita")</li>
                     }
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
@@ -108,6 +110,16 @@
                             </a>
                         </li>
                     }
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    
+                        <li>
+                            <a href="@Url.Action("LogIn", "Home")" title="LogIn" class="links">
+                                <img alt="List View" src="@Url.Content("/Img/icons/user.png")" style="height:30px">
+                            </a>
+                        </li>
+                    
 
                 </ul>
             </div>

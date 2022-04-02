@@ -56,69 +56,73 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Cita.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DetalleOrden.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Marca.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MyContext.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MyContext.Context.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\Metadata.cs" />
-    <Compile Include="Models\MyContext.Designer.cs">
+    <Compile Include="Models\MyModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyContext.edmx</DependentUpon>
+      <DependentUpon>MyModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MyContext1.cs">
+    <Compile Include="Models\MyModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MyModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Orden.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Producto.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rol.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TelefonoUsuario.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoCita.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoProducto.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoUnidad.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
-      <DependentUpon>MyContext.tt</DependentUpon>
+      <DependentUpon>MyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\IRepCita.cs" />
     <Compile Include="Repository\IRepDetalle.cs" />
     <Compile Include="Repository\IRepMarca.cs" />
     <Compile Include="Repository\IRepOrden.cs" />
     <Compile Include="Repository\IRepProducto.cs" />
     <Compile Include="Repository\IRepRol.cs" />
+    <Compile Include="Repository\IRepTipoCita.cs" />
     <Compile Include="Repository\IRepTipoProd.cs" />
     <Compile Include="Repository\IRepTipoUnidad.cs" />
     <Compile Include="Repository\IRepUsuario.cs" />
+    <Compile Include="Repository\RepCita.cs" />
     <Compile Include="Repository\RepDetalle.cs" />
     <Compile Include="Repository\RepMarca.cs" />
     <Compile Include="Repository\RepOrden.cs" />
     <Compile Include="Repository\RepProducto.cs" />
     <Compile Include="Repository\RepRol.cs" />
+    <Compile Include="Repository\RepTipoCita.cs" />
     <Compile Include="Repository\RepTipoProd.cs" />
     <Compile Include="Repository\RepTipoUnidad.cs" />
     <Compile Include="Repository\RepUsuario.cs" />
@@ -126,12 +130,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="Models\MyContext.edmx">
+    <EntityDeploy Include="Models\MyModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MyContext.Designer.cs</LastGenOutput>
+      <LastGenOutput>MyModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\MyContext.edmx.diagram">
-      <DependentUpon>MyContext.edmx</DependentUpon>
+    <None Include="Models\MyModel.edmx.diagram">
+      <DependentUpon>MyModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -139,15 +143,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\MyContext.Context.tt">
+    <Content Include="Models\MyModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyContext.edmx</DependentUpon>
-      <LastGenOutput>MyContext.Context.cs</LastGenOutput>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>MyModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\MyContext.tt">
+    <Content Include="Models\MyModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MyContext.edmx</DependentUpon>
-      <LastGenOutput>MyContext1.cs</LastGenOutput>
+      <DependentUpon>MyModel.edmx</DependentUpon>
+      <LastGenOutput>MyModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
