@@ -18,7 +18,11 @@ html, body {
     min-height: 100%;
     margin-bottom: -255px;
 }
-
+.item-catalogo{
+    background-color:lightgrey;
+    border-radius:5px;
+    border: 1px;
+}
 
 .bodyStyle {
     color: #171614 !important;
@@ -86,8 +90,16 @@ body p {
     width: 100%;
     margin: auto;
     height: 500px;
-    object-fit: cover
+    object-fit: cover;
+    filter: brightness(40%);
 }
+.formCita{
+    background-color:lightgrey;
+    padding-top: 10px;
+
+}
+
+
 .CarouselImg img {
     height: 100px;
     width: 100%;

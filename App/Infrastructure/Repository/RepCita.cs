@@ -111,7 +111,7 @@ namespace Infrastructure.Repository
                     ctx.Configuration.LazyLoadingEnabled = false;
                     //lista = ctx.Citas.Include(c => c.TipoCita).ToList<Cita>();
                     lista = ctx.Citas.Where(p => p.fechaCita == DateTime.Today).Include("TipoCita")
-                    .Include("TipoCita.descripcion").OrderByDescending(p => p.id).ToList<Cita>();
+                    .OrderByDescending(p => p.id).ToList<Cita>();
                 }
                 return lista;
             }
@@ -164,9 +164,10 @@ namespace Infrastructure.Repository
             {
                 using (MyContext ctx = new MyContext())
                 {
-                    pCita.estado = true;
+
                     ctx.Configuration.LazyLoadingEnabled = false;
                     oCita = GetCita(pCita);
+                    pCita.estado = true;
                     if (oCita == null)
                     {
                         //ctx.Citas.Add(pCita);

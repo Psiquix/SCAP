@@ -178,7 +178,7 @@ namespace Web.Controllers
                                 DetalleOrden detalle = new DetalleOrden();
                                 detalle.idProd = item.idProd;
                                 detalle.subtotal = item.precio;
-                                detalle.cantidad = item.cantidad;
+                                detalle.cantidad = item.Cantidad;
                                 pro = serviceProdu.GetProductoByID(detalle.idProd);
                                 inventario.fecha = DateTime.Now;
                                 //inventario.total = (long)Carrito.Instancia.GetTotal();

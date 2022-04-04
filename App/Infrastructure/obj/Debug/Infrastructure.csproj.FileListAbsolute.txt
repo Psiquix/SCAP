@@ -86,14 +86,6 @@ E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.cspro
 E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
 E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.dll
 E:\Documents\UTN\Practica\SCAP\App\Infrastructure\obj\Debug\Infrastructure.pdb
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll.config
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.pdb
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.AssemblyReference.cache
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CoreCompileInputs.cache
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.dll
-E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.pdb
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\bin\Debug\Infrastructure.dll.config
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\bin\Debug\Infrastructure.dll
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\bin\Debug\Infrastructure.pdb
@@ -102,3 +94,11 @@ C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\obj\Debug\Infrastructure.c
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\obj\Debug\Infrastructure.dll
 C:\Users\FABIAN\Source\Repos\SCAP3\App\Infrastructure\obj\Debug\Infrastructure.pdb
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll.config
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\bin\Debug\Infrastructure.pdb
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.AssemblyReference.cache
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CoreCompileInputs.cache
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.csproj.CopyComplete
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.dll
+E:\Documents\Practica Profesional\Proyecto\SCAP\App\Infrastructure\obj\Debug\Infrastructure.pdb

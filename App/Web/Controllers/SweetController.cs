@@ -1,16 +1,18 @@
-﻿using System;
+﻿using SweetAlert.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SweetAlert.Controllers
+namespace Web.Controllers
 {
-    public class SweetController : Controller
+    public class SweetController : SweetBaseController
     {
         // GET: Sweet
-        public ActionResult Alert()
+        public ActionResult Index()
         {
+            Alert("This is a success message", NotificationType.success);
             return View();
         }
     }

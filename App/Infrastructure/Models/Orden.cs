@@ -11,7 +11,9 @@ namespace Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(OrdenMetadata))]
     public partial class Orden
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +26,7 @@ namespace Infrastructure.Models
         public Nullable<double> impuesto { get; set; }
         public Nullable<double> total { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
-        public Nullable<bool> estado { get; set; }
+        public bool estado { get; set; }
         public string nombreCliente { get; set; }
         public string ApellidoCliente { get; set; }
         public string DescripcionCliente { get; set; }

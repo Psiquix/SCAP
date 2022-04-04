@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Web.Utils;
+using Web.Util;
 using System.Reflection;
 using System.IO;
 using Web.Security;
@@ -84,7 +85,7 @@ namespace Web.Controllers
                 else
                 {
                     // Valida Errores si Javascript está deshabilitado
-                    Util.ValidateErrors(this);
+                    //Util.ValidateErrors(this);
 
                     TempData["Message"] = "Error al procesar los datos! " + errores;
                     TempData.Keep();

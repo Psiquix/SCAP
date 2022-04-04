@@ -1,18 +1,19 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Taller Gorro</title>
-
-    @Styles.Render("~/Styles/MyStyle.css")
+    <link rel="shortcut icon" href="~/Img/icons/mechanic.png" type="image/x-icon">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     <link href="~/Styles/MyStyle.css" rel="stylesheet" />
-
 </head>
+
+
 <body class="bodyStyle">
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -113,20 +114,20 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    
-                        <li>
-                            <a href="@Url.Action("LogIn", "Home")" title="LogIn" class="links">
-                                <img alt="List View" src="@Url.Content("/Img/icons/user.png")" style="height:30px">
-                            </a>
-                        </li>
-                    
+
+                    <li>
+                        <a href="@Url.Action("LogIn", "Home")" title="LogIn" class="links">
+                            <img alt="List View" src="@Url.Content("/Img/icons/user.png")" style="height:30px">
+                        </a>
+                    </li>
+
 
                 </ul>
             </div>
 
         </div>
-    </div>
-
+    </nav>
+    @Html.Partial("_Notification")
     @RenderBody()
 
 
@@ -136,9 +137,9 @@
             <div class="row">
                 <div class="col-xs-6 .col-sm-4">
                     <h1> Contáctenos</h1>
-                    <p style="margin:0px; color:white; font-size:12px;"><img src="~/Img/icons/map.png" alt="mapIcon" class="footerIcon" />  C. Los Portones, Copan, Alajuela Province, San Rafael, Costa Rica</p>
+                    <p style="margin:0px; color:white; font-size:12px;"><img src="~/Img/icons/map.png" alt="mapIcon" class="footerIcon" />  C. Los Portones, Copán, Alajuela Province, San Rafael, Costa Rica</p>
                     <p style="margin: 0px; color: white; font-size: 12px; "><img src="~/Img/icons/email.png" alt="mailIcon" class="footerIcon" />tallergorro54@gmail.com</p>
-                    <p style="margin: 0px; color: white; font-size: 12px; "><img src="~/Img/icons/tel.png" alt="telIcon" class="footerIcon" /> +506 8888-8888</p>
+                    <p style="margin: 0px; color: white; font-size: 12px; "><img src="~/Img/icons/tel.png" alt="telIcon" class="footerIcon" /> +506 8335-9253</p>
                 </div>
                 <div class="col-xs-6 .col-sm-4">
                     <h1> Acerca de nosotros</h1>
@@ -152,7 +153,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p class="h6">© Todos los derechos reservados Taller Gorro @DateTime.Today.Year.</p>
+                    <h6>© Todos los derechos reservados Taller Gorro @DateTime.Today.Year.</h6>
                 </div>
                 <hr>
             </div>
@@ -161,7 +162,15 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/sweetalert")
 
     @RenderSection("scripts", required: false)
+
+    @if (ViewBag.NotificationMessage != null)
+    {
+        <script>
+            @Html.Raw(@ViewBag.NotificationMessage);
+        </script>
+    }
 </body>
 </html>

@@ -1,5 +1,6 @@
 ﻿using AppCore.Services;
 using Infrastructure.Models;
+using SweetAlert.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,9 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using Web.Security;
+using Web.Util;
 using Web.Utils;
+using WhatsAppApi;
 
 namespace SCAP.Controllers
 {
@@ -22,7 +25,6 @@ namespace SCAP.Controllers
         //Pag de Sobre nosotros
         public ActionResult About()
         {
-
             return View();
         }
 
@@ -44,6 +46,7 @@ namespace SCAP.Controllers
         public ActionResult LogIn(Usuario user)
         {
             IServiceUsuario _ServiceUser = new ServiceUsuario();
+            SweetBaseController sweetBaseController = new SweetBaseController();    
             Usuario oUser = null;
             try
             {
@@ -56,7 +59,7 @@ namespace SCAP.Controllers
                     {
                         Session["User"] = oUser;
                         Log.Info($"Accede {oUser.nombre}");
-                       // ViewBag.NotificationMessage = Util.SweetAlertHelper.Mensaje("Bienvenido a AFK", "un gusto tenerte de vuelta", SweetAlertMessageType.success);
+                        //ViewBag.NotificationMessage = SweetAlertHelper.Mensaje("Bienvenido a AFK", "un gusto tenerte de vuelta", SweetAlertMessageType.success);
                         return RedirectToAction("Index");
 
                     }

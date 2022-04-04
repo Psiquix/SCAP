@@ -9,10 +9,11 @@ namespace Web.ViewModel
 {
     public class ViewModelDetalle
     {
+        public double IMP = 0.13;
         public int idOrden { get; set; }
         public int idProd { get; set; }
-        public double subtotal { get; set; }
-        public int cantidad { get; set; }
+        public double Subtotal { get; set; }
+        public int Cantidad { get; set; }
 
         public double precio
         {
@@ -21,9 +22,9 @@ namespace Web.ViewModel
         public virtual Orden Orden { get; set; }
         public virtual Producto Producto { get; set; }
 
-        public void Subtotal()
+        public void CalcSubtotal()
         {
-            subtotal = cantidad * precio;
+            Subtotal = Cantidad * precio;
         }
 
 

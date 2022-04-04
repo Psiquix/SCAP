@@ -22,10 +22,8 @@ namespace Infrastructure.Repository
                     /* La carga diferida retrasa la carga de datos relacionados,
                      * hasta que lo solicite específicamente.*/
                     ctx.Configuration.LazyLoadingEnabled = false;
-                    Marca oMarca = new Marca()
-                    {
-                        estado = false
-                    };
+                    Marca oMarca = GetMarcaById(pId);
+                    oMarca.estado = false;
                     ctx.Entry(oMarca).State = EntityState.Modified;
                     salida = ctx.SaveChanges();
                 }

@@ -47,6 +47,7 @@
     <Compile Include="Services\IServiceMarca.cs" />
     <Compile Include="Services\IServiceOrden.cs" />
     <Compile Include="Services\IServiceProducto.cs" />
+    <Compile Include="Services\IServiceReporte.cs" />
     <Compile Include="Services\IServiceRol.cs" />
     <Compile Include="Services\IServiceTipoCita.cs" />
     <Compile Include="Services\IServiceTipoProd.cs" />
@@ -56,6 +57,7 @@
     <Compile Include="Services\ServiceMarca.cs" />
     <Compile Include="Services\ServiceOrden.cs" />
     <Compile Include="Services\ServiceProducto.cs" />
+    <Compile Include="Services\ServiceReporte.cs" />
     <Compile Include="Services\ServiceRol.cs" />
     <Compile Include="Services\ServiceTipoCita.cs" />
     <Compile Include="Services\ServiceTipoProd.cs" />

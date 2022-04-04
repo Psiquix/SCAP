@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Models
 {
-    [MetadataType(typeof(UsuarioMetadata))]
+
     internal partial class UsuarioMetadata
     {
         [Display(Name = "Identificación")]
@@ -39,7 +39,6 @@ namespace Infrastructure.Models
         public Nullable<bool> estado { get; set; }
     }
 
-    [MetadataType(typeof(ProductoMetadata))]
     internal partial class ProductoMetadata
     {
         [Display(Name = "Id")]
@@ -69,28 +68,19 @@ namespace Infrastructure.Models
         public int idMarca { get; set; }
 
         [Display(Name = "Precio unitario")]
-        [DataType(DataType.Currency)]
-        [MaxLength(12)]
-        [MinLength(1)]
         [RegularExpression("^[0-9]*$", ErrorMessage = "El precio debe ser un valor numérico")]
         [Required(ErrorMessage = "El precio es requerido")]
         public double precioUnitario { get; set; }
 
         [Display(Name = "Cantidad númerica")]
-        [MaxLength(12)]
-        [MinLength(1)]
         [RegularExpression("^[0-9]*$", ErrorMessage = "La cantidad debe ser un valor numérico")]
         public int cantidadNum { get; set; }
 
         [Display(Name = "Cantidad mínima en inventario")]
-        [MaxLength(12)]
-        [MinLength(1)]
         [RegularExpression("^[0-9]*$", ErrorMessage = "La cantidad debe ser un valor numérico")]
         public Nullable<int> cantMinNum { get; set; }
 
         [Display(Name = "Cantidad en peso")]
-        [MaxLength(12)]
-        [MinLength(1)]
         [RegularExpression("^[0-9]*$", ErrorMessage = "El peso debe ser un valor numérico")]
         public double cantidadPeso { get; set; }
 
@@ -101,8 +91,6 @@ namespace Infrastructure.Models
         [Display(Name = "Estado")]
         public bool estado { get; set; }
     }
-
-    [MetadataType(typeof(CitaMetadata))]
     internal partial class CitaMetadata
     {
         [Display(Name = "Id")]
@@ -153,7 +141,6 @@ namespace Infrastructure.Models
         public Nullable<int> cantidad { get; set; }
     }
 
-    [MetadataType(typeof(MarcaMetadata))]
     internal partial class MarcaMetadata
     {
         [Display(Name = "Id")]
@@ -168,7 +155,6 @@ namespace Infrastructure.Models
         public string descripcion { get; set; }
     }
 
-    [MetadataType(typeof(OrdenMetadata))]
     internal partial class OrdenMetadata
     {
         [Display(Name = "Id")]
@@ -215,7 +201,6 @@ namespace Infrastructure.Models
         public Nullable<bool> estado { get; set; }
     }
 
-    [MetadataType(typeof(TipoProductoMetadata))]
     internal partial class TipoProductoMetadata
     {
         [Display(Name = "Id")]
@@ -230,7 +215,6 @@ namespace Infrastructure.Models
 
     }
 
-    [MetadataType(typeof(TipoCitaMetadata))]
     internal partial class TipoCitaMetadata
     {
         [Display(Name = "Id")]
@@ -239,8 +223,6 @@ namespace Infrastructure.Models
         [Display(Name = "Descripción")]
         public string descripcion { get; set; }
     }
-
-    [MetadataType(typeof(TipoUnidadMetadata))]
     internal partial class TipoUnidadMetadata
     {
         [Display(Name = "Id")]

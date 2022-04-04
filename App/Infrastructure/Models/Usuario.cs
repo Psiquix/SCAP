@@ -11,7 +11,9 @@ namespace Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(UsuarioMetadata))]
     public partial class Usuario
     {
         public int id { get; set; }
@@ -21,7 +23,7 @@ namespace Infrastructure.Models
         public string contrasena { get; set; }
         public Nullable<int> idTelf { get; set; }
         public Nullable<int> idRol { get; set; }
-        public Nullable<bool> estado { get; set; }
+        public bool estado { get; set; }
     
         public virtual Rol Rol { get; set; }
         public virtual TelefonoUsuario TelefonoUsuario { get; set; }

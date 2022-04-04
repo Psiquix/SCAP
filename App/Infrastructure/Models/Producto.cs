@@ -11,7 +11,9 @@ namespace Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(ProductoMetadata))]
     public partial class Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -31,7 +33,7 @@ namespace Infrastructure.Models
         public Nullable<int> cantMinNum { get; set; }
         public Nullable<double> cantidadPeso { get; set; }
         public byte[] imagen { get; set; }
-        public Nullable<bool> estado { get; set; }
+        public bool estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DetalleOrden> DetalleOrdens { get; set; }

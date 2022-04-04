@@ -151,3 +151,4 @@ select * from Usuario
 select * from TipoProducto
 select * from Marca
 select * from Orden
+select * from cita

@@ -3,87 +3,117 @@
 @{
     ViewBag.Title = "Lista Apartados";
 }
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <center><h2>Lista de apartados</h2></center>
+                <div class="row">
+                    <button class="btn btn-secondary">
+                        @Html.ActionLink("Generar reporte", "CreatePdfActivo", "Reporte")<img src="~/Img/icons/pdf.png" alt="PDF" style="height:30px; width:auto; margin:10px" />
+                    </button>
+                </div>
+                <div class="row">
 
-<h2>Lista de apartados</h2>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.id)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.fecha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.nombreCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ApellidoCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.numeroCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.correoCliente)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.total)
-        </th>
-        <th>
-            Acciones
-        </th>
-    </tr>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr class="table-active">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.id)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.fecha)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.nombreCliente)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.ApellidoCliente)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.numeroCliente)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.correoCliente)
+                                </th>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.id)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.fecha)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.nombreCliente)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ApellidoCliente)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.numeroCliente)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.correoCliente)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.estado)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.total)
-    </td>
-    <td>
-        @if (Session["User"] != null)
-        {
-            Infrastructure.Models.Usuario oUser;
-            oUser = (Infrastructure.Models.Usuario)Session["User"];
-            if (oUser != null && oUser.idRol == 1)
-            {
-                @Html.ActionLink("Editar Orden", "Edit", new { id = item.id })
-            }
-        }
-        @if (item.estado == true)
-        {
-            @Html.ActionLink("Completar", "Completar", new { id = item.id })
-        }
-        else
-        {
-            <p>
-                Completado
-            </p>
-        }
-    </td>
-</tr>
-}
+                                <th>
+                                    @Html.DisplayNameFor(model => model.total)
+                                </th>
+                                <th>
+                                    Acciones
+                                </th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="table-secondary">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.id)
+                                    </td>
+                                    <td>
+                                        @{
+                                            string fecha = item.fecha.Value.ToShortDateString();
+                                            <p>
+                                                @fecha
+                                            </p>
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.nombreCliente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ApellidoCliente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.numeroCliente)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.correoCliente)
+                                    </td>
 
-</table>
+                                    <td>
+                                        ₡@Html.DisplayFor(modelItem => item.total)
+                                    </td>
+                                    <td>
+                                        @if (item.estado == true)
+                                        {
+                                            <button type="button" class="btn btn-success btnMant" style="color:aliceblue">
+                                                @Html.ActionLink("Completar", "Completar", new { id = item.id })
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <p style="font-size:12px">
+                                                Completo
+                                            </p>
+                                        }
+                                        |
+                                        @{
+                                            Infrastructure.Models.Usuario oUser;
+                                            oUser = (Infrastructure.Models.Usuario)Session["User"];
+                                            if (oUser != null && oUser.idRol == 1)
+                                            {
+
+                                                <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
+                                                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
+                                                </button>
+                                            }
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

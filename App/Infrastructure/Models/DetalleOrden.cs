@@ -11,7 +11,9 @@ namespace Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+    [MetadataType(typeof(DetalleOrden))]
     public partial class DetalleOrden
     {
         public int idOrden { get; set; }

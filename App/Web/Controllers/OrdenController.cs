@@ -18,7 +18,6 @@ namespace Web.Controllers
 
         public double localImpuesto = 0.13;
 
-        // GET: Orden
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
@@ -41,7 +40,7 @@ namespace Web.Controllers
             return View();
         }
 
-        [CustomAuthorize((int)Roles.Emp)]
+        [CustomAuthorize((int)Roles.Emp, (int)Roles.Admin)]
         public ActionResult Completar(int? id)
         {
             Orden oOrden = _ServiceOrden.GetOrdenById(id.Value);
@@ -88,6 +87,15 @@ namespace Web.Controllers
         }
 
         [HttpPost]
+        public ActionResult Cancel()
+        {
+            Carrito.Instancia.eliminarCarrito();
+            return RedirectToAction("Index", "Home");
+        }
+
+
+
+        [HttpPost]
         public ActionResult Save(Orden orden)
         {
             try
@@ -97,7 +105,7 @@ namespace Web.Controllers
                     double subtotal = 0;
                     foreach (var item in Carrito.Instancia.Items)
                     {
-                        subtotal += item.subtotal;
+                        subtotal += item.Subtotal;
                     }
                     orden.impuesto = localImpuesto;
                     if (orden.total != 0)
@@ -111,7 +119,7 @@ namespace Web.Controllers
                 else
                 {
                     // Valida Errores si Javascript está deshabilitado
-                    Util.ValidateErrors(this);
+                    //Util.ValidateErrors(this);
                     return View("Create", orden);
                 }
                 return RedirectToAction("ConfirmacionOrden");

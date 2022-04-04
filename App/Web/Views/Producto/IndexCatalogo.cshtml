@@ -11,14 +11,19 @@
     <div class="row">
         @foreach (var item in Model)
         {
-            <div class="col-sm-4">
+        <div class="card" style="width: 18rem;">
+
                 <img src="data:image/jpeg;charset=utf-8;base64,@Convert.ToBase64String(item.imagen)"
-                     alt="Imagen @Html.DisplayFor(modelItem => item.nombre)" class="img-thumbnail imgIndex" />
-   
+                     alt="Imagen @Html.DisplayFor(modelItem => item.nombre)" class="card-img-top" style="height: 200px; width:auto" />
+                <div class="card-body">
                     <h5 class="">@Html.DisplayFor(modelItem => item.nombre)</h5>
                     <p class="">@Html.DisplayFor(modelItem => item.precioUnitario)</p>
-                    @Html.ActionLink("Agregar a carro", "Save", "Carrito", new { id = item.id })
-            </div>
+                    <a href="@Url.Action("Save", "Carrito")" title="save" class="btn btn-primary">
+                        Añadir al carrito
+                    </a>
+                </div>
+        </div>
+   
         }
     </div>
 </div>

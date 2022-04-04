@@ -13,6 +13,8 @@ namespace SCAP
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
+            bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
+            "~/Scripts/jquery.unobtrusive*"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
@@ -24,7 +26,10 @@ namespace SCAP
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/bootstrap-simplex.min.css",
+                      "~/Content/jquery-ui.css", "~/Content/sweetalert.css"
+                      ));
 
             // Jquery UI
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
@@ -32,12 +37,12 @@ namespace SCAP
 
             // Ajax unobtrusive
             // JQUERY UNOBTRUSIVE PARA @Ajax.BeginForm() 
-            bundles.Add(new ScriptBundle("~/bundles/jqueryajax").Include(
-                        "~/Scripts/jquery.unobtrusive*"));
 
             // Toast 
             bundles.Add(new ScriptBundle("~/bundles/toastjs").Include(
                 "~/Scripts/toastr.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/sweetalert").Include("~/Scripts/sweetalert.min.js"));
         }
     }
 }

@@ -5,11 +5,14 @@
       <EntityTypeMapping TypeName="TallerGorroBDModel.Cita">
         <MappingFragment StoreEntitySet="Cita">
           <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idTipoCita" ColumnName="idTipoCita" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="apellidosCliente" ColumnName="apellidosCliente" />
+          <ScalarProperty Name="telefonoCliente" ColumnName="telefonoCliente" />
+          <ScalarProperty Name="correoCliente" ColumnName="correoCliente" />
           <ScalarProperty Name="fechaCita" ColumnName="fechaCita" />
           <ScalarProperty Name="horaCita" ColumnName="horaCita" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-          <ScalarProperty Name="idTipoCita" ColumnName="idTipoCita" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -61,6 +64,7 @@
           <ScalarProperty Name="idMarca" ColumnName="idMarca" />
           <ScalarProperty Name="precioUnitario" ColumnName="precioUnitario" />
           <ScalarProperty Name="cantidadNum" ColumnName="cantidadNum" />
+          <ScalarProperty Name="cantMinNum" ColumnName="cantMinNum" />
           <ScalarProperty Name="cantidadPeso" ColumnName="cantidadPeso" />
           <ScalarProperty Name="imagen" ColumnName="imagen" />
           <ScalarProperty Name="estado" ColumnName="estado" />

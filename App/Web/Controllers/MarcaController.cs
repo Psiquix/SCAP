@@ -109,7 +109,7 @@ namespace Web.Controllers
                 else
                 {
                     // Valida Errores si Javascript está deshabilitado
-                    Util.ValidateErrors(this);
+                    //Util.ValidateErrors(this);
                     return View("Create", pMarca);
                 }
                 return RedirectToAction("Index");
@@ -207,7 +207,7 @@ namespace Web.Controllers
                 else
                 {
                     // Valida Errores si Javascript está deshabilitado
-                    Util.ValidateErrors(this);
+                    //Util.ValidateErrors(this);
                     return View("Create", pMarca);
                 }
                 return RedirectToAction("ListAll");

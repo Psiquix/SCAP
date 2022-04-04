@@ -136,10 +136,6 @@ namespace SCAP.Controllers
                     }
 
                 }
-                //prod.idMarca = int.Parse(marca[0]);
-                //prod.idTipoProducto = int.Parse(producto[0]);
-                //prod.idTipoUnidad = int.Parse(unidad[0]);
-
                 _ServiceProducto.Save(prod);
                 return RedirectToAction("Index");
             }

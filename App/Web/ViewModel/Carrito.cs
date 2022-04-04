@@ -9,15 +9,13 @@ namespace Web.ViewModel
     {
         public List<ViewModelDetalle> Items { get; private set; }
 
-        //Implementación Singleton
 
-        // Las propiedades de solo lectura solo se pueden establecer en la inicialización o en un constructor
         public static readonly Carrito Instancia;
 
-        // Se llama al constructor estático tan pronto como la clase se carga en la memoria
+
         static Carrito()
         {
-            // Si el carrito no está en la sesión, cree uno y guarde los items.
+
             if (HttpContext.Current.Session["carrito"] == null)
             {
                 Instancia = new Carrito();
@@ -26,37 +24,33 @@ namespace Web.ViewModel
             }
             else
             {
-                // De lo contrario, obténgalo de la sesión.
+
                 Instancia = (Carrito)HttpContext.Current.Session["carrito"];
             }
         }
 
-        // Un constructor protegido asegura que un objeto no se puede crear desde el exterior
+
         protected Carrito() { }
 
-        /**
-         * AgregarItem (): agrega un artículo a la compra
-         */
+
         public String AgregarItem(int productoID)
         {
             String mensaje = "";
-            // Crear un nuevo artículo para agregar al carrito
+           
             ViewModelDetalle nuevoItem = new ViewModelDetalle(productoID);
-            // Si este artículo ya existe en lista de libros, aumente la Cantidad
-            // De lo contrario, agregue el nuevo elemento a la lista
             if (nuevoItem != null)
             {
                 if (Items.Exists(x => x.idProd == productoID))
 
                 {
                     ViewModelDetalle item = Items.Find(x => x.idProd == productoID);
-                    item.cantidad++;
-                    item.Subtotal();
+                    item.Cantidad++;
+                    item.CalcSubtotal();
                 }
                 else
                 {
-                    nuevoItem.cantidad = 1;
-                    nuevoItem.Subtotal();
+                    nuevoItem.Cantidad = 1;
+                    nuevoItem.CalcSubtotal();
                     Items.Add(nuevoItem);
                     
                 }
@@ -91,7 +85,7 @@ namespace Web.ViewModel
                 if (Items.Exists(x => x.idProd == productoID))
                 {
                     ViewModelDetalle item = Items.Find(x => x.idProd == productoID);
-                    item.cantidad = Cantidad;
+                    item.Cantidad = Cantidad;
                     //mensaje = SweetAlertHelper.Mensaje("Orden Detalle", "Cantidad actualizada", SweetAlertMessageType.success);
 
                 }
@@ -105,7 +99,7 @@ namespace Web.ViewModel
          */
         public String EliminarItem(long productoID)
         {
-            String mensaje = "El libro no existe";
+            String mensaje = "a";
             if (Items.Exists(x => x.idProd == productoID))
             {
                 var itemEliminar = Items.Single(x => x.idProd == productoID);
@@ -123,7 +117,7 @@ namespace Web.ViewModel
         public int GetCountItems()
         {
             int total = 0;
-            total = (int)Items.Sum(x => x.cantidad);
+            total = (int)Items.Sum(x => x.Cantidad);
 
             return total;
         }
@@ -134,7 +128,6 @@ namespace Web.ViewModel
         public void eliminarCarrito()
         {
             Items.Clear();
-
         }
     }
 }
