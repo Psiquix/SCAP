@@ -516,6 +516,7 @@
     <Content Include="webfonts\fa-brands-400.eot" />
     <Content Include="Views\Orden\ConfirmacionOrden.cshtml" />
     <Content Include="Views\Shared\_Notification.cshtml" />
+    <Content Include="Views\Orden\Cancel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

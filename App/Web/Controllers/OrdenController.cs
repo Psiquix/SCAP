@@ -86,7 +86,6 @@ namespace Web.Controllers
 
         }
 
-        [HttpPost]
         public ActionResult Cancel()
         {
             Carrito.Instancia.eliminarCarrito();

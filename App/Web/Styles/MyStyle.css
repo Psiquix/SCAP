@@ -85,6 +85,12 @@ body p {
     height:160px;
     width:300px;
 }
+.imgCat {
+    height: 300px;
+    width: auto;
+}
+
+
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
     width: 100%;
