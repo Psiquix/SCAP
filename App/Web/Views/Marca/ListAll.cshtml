@@ -53,12 +53,9 @@
 
                             </td>
                             <td>
-                                <a href="@Url.Action("EditAll", "Marca",new { id = item.id })" title="Editar" class="btn btn-primary">
-                                    Editar
-                                </a>|
-                                <a href="@Url.Action("Delete", "Marca",new { id = item.id })" title="Delete" class="btn btn-danger">
-                                    Desactivar
-                                </a>
+                                @Html.ActionLink("Editar", "EditAll", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button" })
+                                |
+                                @Html.ActionLink("Desactivar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
                             </td>
                         </tr>
                     }

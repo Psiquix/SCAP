@@ -4,19 +4,13 @@
     ViewBag.Title = "Listado de Marcas";
 }
 
-@*<script src="~/Scripts/sweetalert.min.js"></script>*@
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
 <div class="jumbotron">
-
-
-    <center><h2>Listado de Marcas</h2></center>
-
-    <button type="button" class="btn btn-success btnMant">
-        @Html.ActionLink("Nuevo", "Create")
-    </button>
-    <div class="row">
-        <div class="col-lg-9">
+    <div class="container">
+        <div class="row">
+            <center><h2>Listado de Marcas</h2></center>
+        </div>
+        <div class="row">
+            @Html.ActionLink("Nueva marca", "Create", null, htmlAttributes: new { @class = "btn btn-success btnMant", @type = "button" })
             <table class="table table-hover">
                 <thead>
                     <tr class="table-active">
@@ -45,12 +39,10 @@
                                 @Html.DisplayFor(modelItem => item.descripcion)
                             </td>
                             <td>
-                                <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
-                                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                                </button>|
-                                <button type="button" class="btn btn-danger btnMant" id="btnAlertMessage" style="color:aliceblue">
-                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
-                                </button>
+                                @Html.ActionLink("Editar", "Edit", null, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button", @id = "btnAlertMessage"})
+                                |
+                                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
+
                             </td>
                         </tr>
                     }
@@ -59,28 +51,3 @@
         </div>
     </div>
 </div>
-
-@*<script type="text/javascript">
-        $(document).ready(function () {
-            $("#btnAlertMessage").click(function () {
-                swal({
-                    title: "Confirmación",
-                    text: "¿Está seguro(a) de eliminar el registro?",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonClass: "btn-danger",
-                    confirmButtonText: "Sí",
-                    cancelButtonText: "No",
-                    closeOnConfirm: false,
-                    closeOnCancel: false
-                },
-                    function (isConfirm) {
-                        if (isConfirm) {
-                            swal("Eliminado", "El registro se ha eliminado con éxito.", "success");
-                        } else {
-                            swal("Cancelado", "El registro se mantiene intacto.", "error")
-                        }
-                    });
-            });
-        });
-    </script>*@
