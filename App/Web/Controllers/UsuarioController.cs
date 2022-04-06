@@ -97,14 +97,13 @@ namespace Web.Controllers
             }
         }
 
-        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult LogOut()
         {
             try
             {
                 Log.Info("La sesión se ha cerrado correctamente.");
                 Session["User"] = null;
-                return RedirectToAction("Index", "Usuario");
+                return RedirectToAction("Index", "Home");
             }
             catch (Exception ex)
             {

@@ -3,112 +3,112 @@
 @{
     ViewBag.Title = "Reservar Cita";
 }
-
-<center><h2>Reservar Cita</h2></center>
-
-<div class="formCita">
-    @using (Html.BeginForm("Save", "Cita", FormMethod.Post))
-    {
-        @Html.AntiForgeryToken()
-
-        @*<h4>Cita</h4>*@
-        @*<hr />*@
-
-        <div class="form-horizontal align-self-md-start">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                <label class="control-label col-md-6"> Tipo de cita</label>
-                @*@Html.LabelFor(model => model.idTipoCita, "idTipoCita", htmlAttributes: new { @class = "control-label col-md-6" })*@
-                <div class="col-md-2">
-                    @Html.DropDownList("idTipoCita", new SelectList(ViewBag.listaTipos, "id", "descripcion"),
-                        htmlAttributes: new { @class = "form-control" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.nombreCliente, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.nombreCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.nombreCliente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.apellidosCliente, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.apellidosCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.apellidosCliente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.telefonoCliente, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.telefonoCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.telefonoCliente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.correoCliente, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.correoCliente, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.correoCliente, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.fechaCita, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    <input type="date" name="name" value="" />
-                    <div class="input-group date" id="datetimepicker12" data-target-input="nearest">
-                        @*@Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control datetimepicker-input", @target = "#datetimepicker12" } })*@
-                        @Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control datepicker"} })
-                        @Html.ValidationMessageFor(model => model.fechaCita, "", new { @class = "text-danger" })
-                        @*<div class="input-group-append" data-target="#datetimepicker12" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>*@
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.horaCita, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.horaCita, new { htmlAttributes = new { @class = "form-control", @id = "durationExample" } })
-                    @Html.ValidationMessageFor(model => model.horaCita, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-6" })
-                <div class="col-md-2">
-                    @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-
-            <div class="row">
-                <div class="form-group col-md-12">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Reservar" class="btn btn-success" />
-                    </div>
-                </div>
-                <div class="form-group col-md-12">
-                    <div class="col-md-offset-2 col-md-10">
-                        @Html.ActionLink("Regresar al inicio", "Index")
-                    </div>
-                </div>
-
-            </div>
-
-
-
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <center><h2>Reservá una cita</h2></center>
+            <center>
+                <i>Reservá una cita con nosotros para que te podamos atender y brindar nuestros servicios, si tenés alguna duda no dudés en llamar al <img src="~/Img/icons/phone-call.png" alt="Alternate Text" style="height: 20px; width:auto; margin-left:10px" /> 8888-8888</i>
+            </center>
         </div>
+        <div class="row">
+            @using (Html.BeginForm("Save", "Cita", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
 
-    }
+                @*<h4>Cita</h4>*@
+                @*<hr />*@
+
+                <div class="form-horizontal align-self-md-start">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        <label class="control-label col-md-6"> Tipo de cita</label>
+                        @*@Html.LabelFor(model => model.idTipoCita, "idTipoCita", htmlAttributes: new { @class = "control-label col-md-6" })*@
+                        <div class="col-md-2">
+                            @Html.DropDownList("idTipoCita", new SelectList(ViewBag.listaTipos, "id", "descripcion"),
+                         htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.nombreCliente, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.nombreCliente, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.nombreCliente, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.apellidosCliente, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.apellidosCliente, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.apellidosCliente, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.telefonoCliente, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.telefonoCliente, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.telefonoCliente, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.correoCliente, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.correoCliente, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.correoCliente, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.fechaCita, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            <div class="input-group date" id="datetimepicker12" data-target-input="nearest">
+                                @*@Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control datetimepicker-input", @target = "#datetimepicker12" } })*@
+                                @Html.EditorFor(model => model.fechaCita, new { htmlAttributes = new { @class = "form-control datepicker" } })
+                                @Html.ValidationMessageFor(model => model.fechaCita, "", new { @class = "text-danger" })
+                                @*<div class="input-group-append" data-target="#datetimepicker12" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.horaCita, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.horaCita, new { htmlAttributes = new { @class = "form-control", @id = "durationExample" } })
+                            @Html.ValidationMessageFor(model => model.horaCita, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.descripcion, htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-2">
+                            @Html.EditorFor(model => model.descripcion, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.descripcion, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+
+                    <div class="">
+                        <div class="col-md-10">
+                            <input type="submit" value="Reservar" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+        <div class="row">
+                @Html.ActionLink("Regresar al inicio", "Index")
+        </div>
+    </div>
 </div>
+
+
 
 
 

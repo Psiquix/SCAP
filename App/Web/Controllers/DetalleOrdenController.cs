@@ -258,7 +258,7 @@ namespace Web.Controllers
         {
             try
             {
-                ViewBag.NotificationMessage = Carrito.Instancia.EliminarItem((long)idProducto);
+                ViewBag.NotificationMessage = Carrito.Instancia.EliminarItem((int)idProducto);
                 return PartialView("DetalleOrden", Carrito.Instancia.Items);
             }
             catch (Exception e)

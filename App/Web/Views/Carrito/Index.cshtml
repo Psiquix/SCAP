@@ -5,85 +5,86 @@
 
 
 <div class="jumbotron">
-    <h2 class="text-center">Objetos en el carrito</h2>
-    <div class="row">
-        <div class="col-lg-12">
-            <table class="table table-hover">
-                <thead>
-                    <tr class="table-active">
-                        <th>
-                            @Html.DisplayNameFor(model => model.Producto.nombre)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Cantidad)
-                        </th>
-                        <th>
-                            Precio
-                        </th>
-                        <th>
-                            Acciones
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr class="table-secondary">
+    <div class="container">
+        <center><h2>Objetos en el carrito</h2></center>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-active">
                             <th>
-                                @Html.DisplayFor(modelItem => item.Producto.nombre)
+                                @Html.DisplayNameFor(model => model.Producto.nombre)
                             </th>
                             <th>
-                                @Html.DisplayFor(modelItem => item.Cantidad)
+                                @Html.DisplayNameFor(model => model.Cantidad)
                             </th>
                             <th>
-                                @Html.DisplayFor(modelItem => item.Subtotal)
+                                Precio
                             </th>
                             <th>
-                                <button class="btn btn-primary">Más</button>
-                                <button class="btn btn-primary">-</button>
+                                Acciones
                             </th>
                         </tr>
-                    }
-                </tbody>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="table-secondary">
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.Producto.nombre)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.Cantidad)
+                                </th>
+                                <th>
+                                    ₡@Html.DisplayFor(modelItem => item.Subtotal)
+                                </th>
+                                <th>
+                                    <button class="btn btn-primary">Más</button>
+                                    @Html.ActionLink("-", "EliminarItem", new { id = item.idProd }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
+                                </th>
+                            </tr>
+                        }
+                    </tbody>
 
-            </table>
-            <hr class="rounded" />
-            <div>
-                @{
-                    double subtotalSumado = 0;
-                    double impuesto = 0;
-                    foreach (var item in Model)
-                    {
-                        subtotalSumado += item.Subtotal;
-                        impuesto = item.IMP;
+                </table>
+                <hr class="rounded" />
+                <div>
+                    @{
+                        double subtotalSumado = 0;
+                        double impuesto = 0;
+                        foreach (var item in Model)
+                        {
+                            subtotalSumado += item.Subtotal;
+                            impuesto = item.IMP;
+                        }
+                        double total;
+                        total = subtotalSumado + (subtotalSumado * impuesto);
+                        <p>
+                            Subtotal:
+                            ₡@subtotalSumado
+                            <br />
+                            Total:
+                            ₡@total
+                        </p>
                     }
-                    double total;
-                    total = subtotalSumado + (subtotalSumado * impuesto);
-                    <p>
-                        Subtotal:
-                        ₡@subtotalSumado
-                        <br />
-                        Total:
-                        ₡@total
-                    </p>
-                }
+                </div>
+
             </div>
 
         </div>
-
-    </div>
-    <div class="row">
-        <div class="col-lg-6">
-            <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
-                @Html.ActionLink("Completar orden", "Create", "Orden")
-            </button>
-            <button type="button" class="btn btn-danger btnMant">
-                @Html.ActionLink("Cancelar orden", "Cancel", "Orden")
-            </button>
+        <div class="row">
+            <div class="col-lg-6">
+                <button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
+                    @Html.ActionLink("Completar orden", "Create", "Orden")
+                </button>
+                <button type="button" class="btn btn-danger btnMant">
+                    @Html.ActionLink("Cancelar orden", "Cancel", "Orden")
+                </button>
+            </div>
         </div>
-
-            
-
     </div>
+
 </div>
 

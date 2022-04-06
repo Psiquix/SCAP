@@ -16,6 +16,6 @@ namespace Infrastructure.Repository
 
         void actualizarCantidad(long id, int cantidad, long tipoMovimiento);
         //void Update();
-        //voidn Disable()
+        void Disable(int id);
     }
 }

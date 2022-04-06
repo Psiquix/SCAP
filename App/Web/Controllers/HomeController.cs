@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using Web.Security;
 using Web.Util;
 using Web.Utils;
+using Web.ViewModel;
 using WhatsAppApi;
 
 namespace SCAP.Controllers
@@ -60,6 +61,8 @@ namespace SCAP.Controllers
                         Session["User"] = oUser;
                         Log.Info($"Accede {oUser.nombre}");
                         //ViewBag.NotificationMessage = SweetAlertHelper.Mensaje("Bienvenido a AFK", "un gusto tenerte de vuelta", SweetAlertMessageType.success);
+                        Carrito.Instancia.eliminarCarrito();
+
                         return RedirectToAction("Index");
 
                     }

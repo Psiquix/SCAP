@@ -10,6 +10,7 @@ namespace AppCore.Services
     public interface IServiceCita
     {
         IEnumerable<Cita> GetListaCitaActive();
+        IEnumerable<Cita> GetListaAllCita();
         IEnumerable<Cita> GetListaCitas();
         IEnumerable<Cita> GetCitasReporte();
         IEnumerable<Cita> GetCitaByFecha(DateTime pFecha);

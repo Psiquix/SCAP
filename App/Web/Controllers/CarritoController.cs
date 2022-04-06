@@ -32,6 +32,12 @@ namespace Web.Controllers
             }
             return View(lista);
         }
+
+        public ActionResult EliminarItem(int? id)
+        {
+            Carrito.Instancia.EliminarItem(id.Value);
+            return RedirectToAction("Index");
+        }
         public ActionResult Save(int? id)
         {
             Carrito.Instancia.AgregarItem((int)id);

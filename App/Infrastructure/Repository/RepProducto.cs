@@ -49,6 +49,36 @@ namespace Infrastructure.Repository
             }
         }
 
+        public void Disable(int id)
+        {
+            int salida = 0;
+            Producto oProd = null;
+            try
+            {
+                using (MyContext ctx = new MyContext())
+                {
+                    ctx.Configuration.LazyLoadingEnabled = false;
+                    oProd = GetProductoByID(id);
+                    if (oProd != null)
+                    {
+                        oProd.estado = false;
+                        ctx.Entry(oProd).State = EntityState.Modified;
+                    }
+                    salida = ctx.SaveChanges();
+                }
+                if (salida >= 0)
+                {
+                    oProd = GetProductoByID(id);
+                }
+            }
+            catch (Exception e)
+            {
+                string mensaje = "Error" + e.Message;
+                Log.Error(e, System.Reflection.MethodBase.GetCurrentMethod(), ref mensaje);
+                throw;
+            }
+        }
+
         public IEnumerable<Producto> GetProducto()
         {
             IEnumerable<Producto> lista = null;

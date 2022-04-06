@@ -41,7 +41,6 @@ namespace Web.ViewModel
             if (nuevoItem != null)
             {
                 if (Items.Exists(x => x.idProd == productoID))
-
                 {
                     ViewModelDetalle item = Items.Find(x => x.idProd == productoID);
                     item.Cantidad++;
@@ -97,13 +96,23 @@ namespace Web.ViewModel
         /**
          * EliminarItem (): elimina un artículo del carrito de compras
          */
-        public String EliminarItem(long productoID)
+        public String EliminarItem(int id)
         {
             String mensaje = "a";
-            if (Items.Exists(x => x.idProd == productoID))
+            if (Items.Exists(x => x.idProd == id))
             {
-                var itemEliminar = Items.Single(x => x.idProd == productoID);
-                Items.Remove(itemEliminar);
+                ViewModelDetalle item = Items.Find(x => x.idProd == id);
+                if (item.Cantidad==1)
+                {
+                    var itemEliminar = Items.Single(x => x.idProd == id);
+                    Items.Remove(itemEliminar);
+                }
+                else
+                {
+                    item.Cantidad--;
+                    item.CalcSubtotal();
+                }
+                
                 //mensaje = SweetAlertHelper.Mensaje("Orden Libro", "Producto eliminado", SweetAlertMessageType.success);
             }
             return mensaje;

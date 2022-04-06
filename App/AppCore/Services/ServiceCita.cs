@@ -15,7 +15,7 @@ namespace AppCore.Services
         //    IRepCita oRepository = new RepCita();
         //    oRepository.Delete(pId);
         //}
-
+        IServiceTipoCita _tipo = new ServiceTipoCita();
         public void Delete(Cita pCita)
         {
             IRepCita oRepository = new RepCita();
@@ -38,6 +38,17 @@ namespace AppCore.Services
         {
             IRepCita oRepository = new RepCita();
             return oRepository.GetCitasReporte();
+        }
+
+        public IEnumerable<Cita> GetListaAllCita()
+        {
+            IRepCita oRepository = new RepCita();
+            IEnumerable<Cita> list = oRepository.GetListaAllCita();
+            foreach (Cita cita in list)
+            {
+                cita.TipoCita = _tipo.GetTipoCitaById(cita.idTipoCita.Value);
+            }
+            return list;
         }
 
         //public Cita GetCitaById(int pId)

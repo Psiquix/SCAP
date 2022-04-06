@@ -8,46 +8,51 @@
     <div class="container">
         <div class="row">
             <center><h2>Listado de Marcas</h2></center>
-        </div>
-        <div class="row">
-            @Html.ActionLink("Nueva marca", "Create", null, htmlAttributes: new { @class = "btn btn-success btnMant", @type = "button" })
-            <table class="table table-hover">
-                <thead>
-                    <tr class="table-active">
-                        <th>
-                            @Html.DisplayNameFor(model => model.id)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.idTipoProducto)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.descripcion)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody id="result">
-                    @foreach (var item in Model)
-                    {
-                        <tr class="table-secondary">
-                            <td>
-                                @Html.DisplayFor(modelItem => item.id)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.idTipoProducto)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.descripcion)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Editar", "Edit", null, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button", @id = "btnAlertMessage"})
-                                |
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
 
-                            </td>
+            <div class="row">
+                @Html.ActionLink("Nueva marca", "Create", null, htmlAttributes: new { @class = "btn btn-success btnMant", @type = "button" })
+            </div>
+            <div class="row">
+                <table class="table table-hover">
+                    <thead>
+                        <tr class="table-active">
+                            <th>
+                                @Html.DisplayNameFor(model => model.id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idTipoProducto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.descripcion)
+                            </th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody id="result">
+                        @foreach (var item in Model)
+                        {
+                            <tr class="table-secondary">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idTipoProducto)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.descripcion)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button", @id = "btnAlertMessage" })
+                                    |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
+
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
 </div>
+

@@ -16,6 +16,12 @@ namespace AppCore.Services
             rep.actualizarCantidad(id,cantidad,tipoMovimiento);
         }
 
+        public void Disable(int id)
+        {
+            IRepProducto rep = new RepProducto();
+            rep.Disable(id);
+        }
+
         public IEnumerable<Producto> GetProducto()
         {
             IRepProducto rep = new RepProducto();

@@ -18,6 +18,8 @@ namespace Web.Controllers
 
         public double localImpuesto = 0.13;
 
+
+
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult Index()
         {
@@ -97,22 +99,32 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Save(Orden orden)
         {
+            Orden oOrden = _ServiceOrden.GetOrdenById(orden.id);
             try
             {
                 if (ModelState.IsValid)
                 {
-                    double subtotal = 0;
-                    foreach (var item in Carrito.Instancia.Items)
+                    if (oOrden != null)
                     {
-                        subtotal += item.Subtotal;
+                        orden.total = oOrden.total;
+                        orden.fecha = oOrden.fecha;
+                        orden.impuesto = oOrden.impuesto;
                     }
-                    orden.impuesto = localImpuesto;
-                    if (orden.total != 0)
+                    else
                     {
-                        orden.total = subtotal + (subtotal * localImpuesto);
+                        double subtotal = 0;
+                        foreach (var item in Carrito.Instancia.Items)
+                        {
+                            subtotal += item.Subtotal;
+                        }
+                        orden.impuesto = localImpuesto;
+                        if (orden.total != 0)
+                        {
+                            orden.total = subtotal + (subtotal * localImpuesto);
+                        }
+                        orden.estado = true;
+                        orden.fecha = DateTime.Now;
                     }
-                    orden.estado = true;
-                    orden.fecha = DateTime.Now; 
                     _ServiceOrden.Save(orden);
                 }
                 else

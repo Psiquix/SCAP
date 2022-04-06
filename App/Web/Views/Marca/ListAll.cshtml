@@ -3,67 +3,70 @@
 @{
     ViewBag.Title = "Listado completo";
 }
-@Scripts.Render("~/bundles/jquery")
-@Scripts.Render("~/bundles/jqueryval")
-
 
 <div class="jumbotron">
-    <center><h2>Listado completo de marcas</h2></center>
-    <div class="col-lg-1">
-        <a href="@Url.Action("Create", "Marca")" title="Crear" class="btn btn-success">
-            Nuevo
-        </a>
-    </div>
-    <div class="row">
-        <div class="col">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>
-                            @Html.DisplayNameFor(model => model.idTipoProducto)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.descripcion)
-                        </th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.estado)
-                        </th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
+    <div class="container">
+        <center><h2>Listado completo de marcas</h2></center>
+        <div class="col-lg-1">
+            <a href="@Url.Action("Create", "Marca")" title="Crear" class="btn btn-success">
+                Nuevo
+            </a>
+            <a href="@Url.Action("OrdenPDF", "Reporte")" title="Reporte" class="btn btn-secondary" type="button">
+                Generar PDF<img src="~/Img/icons/pdf.png" alt="PDF" style="height:30px; width:auto; margin:10px" />
+            </a>
+        </div>
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.idTipoProducto)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.descripcion)
-                            </td>
-                            <td>
-                                @if (item.estado == true)
-                                {
-                                    <p>Activo</p>
-                                }
-                                else
-                                {
-                                    <p>Desactivo</p>
-                                }
-
-                            </td>
-                            <td>
-                                @Html.ActionLink("Editar", "EditAll", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button" })
-                                |
-                                @Html.ActionLink("Desactivar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
-                            </td>
+                            <th>
+                                @Html.DisplayNameFor(model => model.idTipoProducto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.descripcion)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.estado)
+                            </th>
+                            <th></th>
                         </tr>
-                    }
-                </tbody>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.idTipoProducto)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.descripcion)
+                                </td>
+                                <td>
+                                    @if (item.estado == true)
+                                    {
+                                        <p>Activo</p>
+                                    }
+                                    else
+                                    {
+                                        <p>Desactivo</p>
+                                    }
 
-            </table>
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Editar", "EditAll", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button" })
+                                    |
+                                    @Html.ActionLink("Desactivar", "Delete", new { id = item.id }, htmlAttributes: new { @class = "btn btn-danger btnMant", @type = "button" })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </div>
+    
 
 </div>
 

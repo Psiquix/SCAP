@@ -107,7 +107,7 @@ namespace Web.Controllers
         }
 
         //Citas para el día actual
-
+        [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
         public ActionResult List()
         {
             IEnumerable<Cita> lista = null;

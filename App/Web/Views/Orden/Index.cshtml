@@ -8,17 +8,23 @@
         <div class="row">
 
             <center><h2>Lista de apartados</h2></center>
-            <div class="row">
 
-                <a href="@Url.Action("CreatePdfActivo", "Reporte")" title="Reporte" class="btn btn-secondary" type="button" >
-                    Generar PDF<img src="~/Img/icons/pdf.png" alt="PDF" style="height:30px; width:auto; margin:10px" />
-                </a>
-                <button class="btn btn-secondary">
-                    @Html.ActionLink("Generar reporte", "CreatePdfActivo", "Reporte")<img src="~/Img/icons/pdf.png" alt="PDF" style="height:30px; width:auto; margin:10px" />
-                </button>
+            <div class="row">
+                @{
+                    Infrastructure.Models.Usuario oUser;
+                    oUser = (Infrastructure.Models.Usuario)Session["User"];
+                    if (oUser != null && oUser.idRol == 1)
+                    {
+                        <a href="@Url.Action("OrdenPDF", "Reporte")" title="Reporte" class="btn btn-secondary" type="button">
+                            Generar PDF<img src="~/Img/icons/pdf.png" alt="PDF" style="height:30px; width:auto; margin:10px" />
+                        </a> 
+                    }
+                }
+
+
+
             </div>
             <div class="row">
-
                 <table class="table table-hover">
                     <thead>
                         <tr class="table-active">
@@ -98,15 +104,9 @@
                                     }
                                     |
                                     @{
-                                        Infrastructure.Models.Usuario oUser;
-                                        oUser = (Infrastructure.Models.Usuario)Session["User"];
                                         if (oUser != null && oUser.idRol == 1)
                                         {
                                             @Html.ActionLink("Editar", "Edit", new { id = item.id }, htmlAttributes: new { @class = "btn btn-primary btnMant", @type = "button" })
-
-                                            @*<button type="button" class="btn btn-primary btnMant" style="color:aliceblue">
-                                                    @Html.ActionLink("Editar", "Edit", new { id = item.id })
-                                                </button>*@
                                         }
                                     }
                                 </td>

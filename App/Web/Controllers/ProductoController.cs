@@ -186,63 +186,18 @@ namespace SCAP.Controllers
         }
 
         [CustomAuthorize((int)Roles.Admin, (int)Roles.Emp)]
-        public ActionResult Delete(int id)
+
+        public ActionResult Disable(int id)
         {
+            IServiceProducto _ServiceProducto = new ServiceProducto();
             if (ModelState.IsValid)
             {
-                //_ServiceProducto.Delete(id);
+                _ServiceProducto.Disable(id);
                 return RedirectToAction("Index");
             }
 
             return RedirectToAction("Index");
-            //Producto oProducto = null;
-            //try
-            //{
-            //    // Si va null
-            //    if (id == null)
-            //    {
-            //        return RedirectToAction("Index");
-            //    }
-            //    oProducto = _ServiceProducto.GetProductoByID(id.Value);
-
-
-            //    if (oProducto == null)
-            //    {
-            //        TempData["Message"] = "No existe el producto solicitado";
-            //        TempData["Redirect"] = "Producto";
-            //        TempData["Redirect-Action"] = "Index";
-            //        // Redireccion a la captura del Error
-            //        return RedirectToAction("Default", "Error");
-            //    }
-
-            //    return View(oProducto);
-            //}
-            //catch (Exception ex)
-            //{
-            //    // Salvar el error en un archivo 
-            //    Log.Error(ex, MethodBase.GetCurrentMethod());
-            //    TempData["Message"] = "Error al procesar los datos! " + ex.Message;
-            //    TempData["Redirect"] = "Producto";
-            //    TempData["Redirect-Action"] = "Index";
-            //    // Redireccion a la captura del Error
-            //    return RedirectToAction("Default", "Error");
-            //}
         }
 
-        //// POST: Producto/Delete/5
-        //[HttpPost]
-        //public ActionResult Disable(int id, FormCollection collection)
-        //{
-        //    try
-        //    {
-        //        // TODO: Add delete logic here
-
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch
-        //    {
-        //        return View();
-        //    }
-        //}
     }
 }
