@@ -30,7 +30,8 @@ nombre nvarchar(40),
 apellidos nvarchar(80),
 email nvarchar(50),
 contrasena nvarchar(50),
-idTelf int,
+telefono nvarchar(15),
+--idTelf int,
 idRol int,
 estado bit
 );
@@ -41,11 +42,11 @@ descripcion nvarchar(20),
 estado bit
 );
 
-create table TelefonoUsuario(
-id int identity(1,1) primary key,
-numeroTelf nvarchar(20),
-estado bit
-);
+--create table TelefonoUsuario(
+--id int identity(1,1) primary key,
+--numeroTelf nvarchar(20),
+--estado bit
+--);
 
 
 create table Orden(
@@ -108,7 +109,7 @@ estado bit
 
 
 --alter table Cita add foreign key (idUsuario) references Usuario(id);
-alter table Usuario add foreign key (idTelf) references TelefonoUsuario(id);
+--alter table Usuario add foreign key (idTelf) references TelefonoUsuario(id);
 alter table Usuario add foreign key (idRol) references Rol(id);
 
 
